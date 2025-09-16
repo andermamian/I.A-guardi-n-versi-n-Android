@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidDomInspection -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -35,12 +36,16 @@
 
     <!-- Permisos de Contactos y Teléfono -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-permission android:name="android.permission.SEND_SMS"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
 
     <!-- Permisos para VPN IA -->
-    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
-    <uses-permission android:name="android.permission.CONTROL_VPN" />
+    <uses-permission android:name="android.permission.BIND_VPN_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CONTROL_VPN"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <!-- Permisos para Membresías y Pagos -->
@@ -48,9 +53,12 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <!-- Permisos para IA Avanzada -->
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.DEVICE_POWER"
+        tools:ignore="ProtectedPermissions" />
 
     <!-- Características requeridas -->
     <uses-feature
@@ -104,18 +112,21 @@
         <activity android:name=".activities.GuardianConfigurationCenterActivity" />
         <activity android:name=".activities.GuardianRealTimeMonitoringActivity" />
         <activity android:name=".activities.MembershipActivity" />
+        <activity
+            android:name=".activities.AdminEmergencyCommandActivity"
+            android:label="@string/emergency_command_center"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.GuardianIA.NoActionBar" />
 
         <!-- Servicios -->
         <service
             android:name=".services.GuardianBackgroundService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="location|camera|microphone" />
+            android:foregroundServiceType="location|camera|microphone"
+            tools:ignore="ForegroundServicePermission,MissingClass" />
 
-        <service
-            android:name=".services.GuardianAIService"
-            android:enabled="true"
-            android:exported="false" />
+        <service android:name=".services.GuardianAIService" android:enabled="true" android:exported="false" tools:ignore="MissingClass" />
 
         <!-- Servicio VPN IA -->
         <service
@@ -132,7 +143,8 @@
         <receiver
             android:name=".receivers.BootReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="MissingClass">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
@@ -150,6 +162,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
+
         </provider>
 
     </application>

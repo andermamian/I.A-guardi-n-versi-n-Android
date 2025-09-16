@@ -4,11 +4,11 @@ import android.animation.ValueAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Box
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,18 +25,11 @@ import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.random.Random
 
-private val GuardianSystemManager.TacticalMode.Companion.DEFENSIVE: Any
-    get() {
-        TODO("Not yet implemented")
-    }
-
 /**
  * Sistema de Comunicación Inter-IA con Configuración Militar
  * Arquitectura de doble núcleo con sincronización neural avanzada
  */
-class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, TacticalAICore, GuardianAICore, EmergencyResponseSystem, DataTransferProtocol, KnowledgeSyncManager, SharedLearningEngine, ProtectionMatrix, QuantumEncryption, AIMessageAdapter, AIMessage, SystemEvent>(
-    ConnectionQuality: Any
-) : AppCompatActivity() {
+class AICommunicationActivity : AppCompatActivity() {
 
     // UI Components principales
     private lateinit var tvLatency: TextView
@@ -74,16 +67,16 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     private lateinit var fabDirectCommunication: ExtendedFloatingActionButton
 
     // Managers y engines del sistema
-    private var militaryProtocolManager: MilitaryProtocolManager? = null
-    private var neuralSyncEngine: NeuralSyncEngine = TODO()
-    private var tacticalAICore: TacticalAICore? = null
-    private var guardianAICore: GuardianAICore? = null
-    private var emergencyResponseSystem: EmergencyResponseSystem
-    private var dataTransferProtocol: DataTransferProtocol? = null
-    private var knowledgeSyncManager: KnowledgeSyncManager? = null
-    private var sharedLearningEngine: SharedLearningEngine? = null
-    private var protectionMatrix: ProtectionMatrix? = null
-    private var quantumEncryption: QuantumEncryption? = null
+    private lateinit var militaryProtocolManager: MilitaryProtocolManager
+    private lateinit var neuralSyncEngine: NeuralSyncEngine
+    private lateinit var tacticalAICore: TacticalAICore
+    private lateinit var guardianAICore: GuardianAICore
+    private lateinit var emergencyResponseSystem: EmergencyResponseSystem
+    private lateinit var dataTransferProtocol: DataTransferProtocol
+    private lateinit var knowledgeSyncManager: KnowledgeSyncManager
+    private lateinit var sharedLearningEngine: SharedLearningEngine
+    private lateinit var protectionMatrix: ProtectionMatrix
+    private lateinit var quantumEncryption: QuantumEncryption
 
     // Adapters
     private lateinit var aiMessageAdapter: AIMessageAdapter
@@ -93,7 +86,7 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     private val currentLatency = AtomicInteger(12)
     private val syncedMessageCount = AtomicInteger(847)
     private val activeProtocolCount = AtomicInteger(6)
-    private val connectionQuality = MutableStateFlow(GuardianSystemOrchestrator.DiagnosticStatus.EXCELLENT)
+    private val connectionQuality = MutableStateFlow(ConnectionQuality.EXCELLENT)
 
     // Coroutines y flows
     private val messageFlow = MutableSharedFlow<AIMessage>()
@@ -102,7 +95,10 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     // Configuración militar
     private var militaryMode = MilitaryMode.STANDARD
     private var encryptionLevel = EncryptionLevel.QUANTUM
-    private var tacticalMode = GuardianSystemManager.TacticalMode.DEFENSIVE
+    private var tacticalMode = TacticalMode.DEFENSIVE
+
+    // Dialog actual
+    private var currentProcessingDialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -157,10 +153,8 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     }
 
     private fun initializeManagers() {
-        val also = MilitaryProtocolManager(this).also { militaryProtocolManager = it }
-        val also1 = Box {
-            NeuralSyncEngine()
-        }.also { neuralSyncEngine = it }
+        militaryProtocolManager = MilitaryProtocolManager(this)
+        neuralSyncEngine = NeuralSyncEngine()
         tacticalAICore = TacticalAICore(this)
         guardianAICore = GuardianAICore(this)
         emergencyResponseSystem = EmergencyResponseSystem(this)
@@ -854,15 +848,20 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     }
 
     private fun showProcessingDialog(message: String) {
-        // Implementar diálogo de procesamiento
+        currentProcessingDialog = AlertDialog.Builder(this)
+            .setMessage(message)
+            .setCancelable(false)
+            .create()
+        currentProcessingDialog?.show()
     }
 
     private fun hideProcessingDialog() {
-        // Ocultar diálogo
+        currentProcessingDialog?.dismiss()
+        currentProcessingDialog = null
     }
 
     private fun showSuccessAnimation() {
-        // Mostrar animación de éxito
+        Toast.makeText(this, "Operación exitosa", Toast.LENGTH_SHORT).show()
     }
 
     private fun createDataTransferDialog(): AlertDialog {
@@ -874,7 +873,7 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     }
 
     private fun showEmergencyNotification() {
-        // Mostrar notificación de emergencia
+        Toast.makeText(this, "⚠️ MODO EMERGENCIA ACTIVO", Toast.LENGTH_LONG).show()
     }
 
     private fun generateMessageId(): String = "msg_${System.currentTimeMillis()}_${Random.nextInt(1000)}"
@@ -882,5 +881,368 @@ class AICommunicationActivity<MilitaryProtocolManager, NeuralSyncEngine, Tactica
     override fun onDestroy() {
         super.onDestroy()
         isSystemActive.set(false)
+    }
+
+    // Enums
+    enum class MilitaryMode {
+        STANDARD, TACTICAL, EMERGENCY, STEALTH
+    }
+
+    enum class EncryptionLevel {
+        STANDARD, HIGH, QUANTUM, MAXIMUM
+    }
+
+    enum class TacticalMode {
+        DEFENSIVE, NEUTRAL, OFFENSIVE, ADAPTIVE
+    }
+
+    enum class ConnectionQuality {
+        EXCELLENT, GOOD, MODERATE, POOR, DIRECT
+    }
+
+    enum class AISender {
+        USER, SYSTEM, TACTICAL, GUARDIAN
+    }
+
+    enum class CommandType {
+        SYNC_KNOWLEDGE, DATA_TRANSFER, QUERY_STATUS,
+        EMERGENCY, SHARED_LEARNING, PROTECT_USER
+    }
+
+    enum class MessagePriority {
+        LOW, NORMAL, HIGH, CRITICAL
+    }
+
+    enum class ThreatLevel {
+        NONE, LOW, MEDIUM, HIGH, CRITICAL
+    }
+
+    // Data classes
+    data class AIMessage(
+        val id: String,
+        val sender: AISender,
+        val content: String,
+        val timestamp: Long,
+        val commandType: CommandType? = null,
+        val priority: MessagePriority = MessagePriority.NORMAL,
+        val isEncrypted: Boolean = false,
+        val militaryGrade: Boolean = false,
+        val isNeuralExchange: Boolean = false
+    )
+
+    data class SystemEvent(
+        val type: String,
+        val timestamp: Long,
+        val data: Any?
+    )
+
+    data class SystemStatus(
+        val cpuUsage: Int,
+        val memoryUsage: Int,
+        val activeSensors: Int,
+        val temperature: Float,
+        val mode: String,
+        val alerts: Int,
+        val lastActivities: List<Activity>
+    )
+
+    data class Activity(
+        val timestamp: Long,
+        val description: String
+    )
+
+    data class SyncResult(
+        val dataTransferred: Int,
+        val integrity: Int,
+        val newPatterns: Int
+    )
+
+    data class DataPacket(
+        val size: Int,
+        val data: ByteArray
+    ) {
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (javaClass != other?.javaClass) return false
+            other as DataPacket
+            if (size != other.size) return false
+            if (!data.contentEquals(other.data)) return false
+            return true
+        }
+
+        override fun hashCode(): Int {
+            var result = size
+            result = 31 * result + data.contentHashCode()
+            return result
+        }
+    }
+
+    data class TransferResult(
+        val success: Boolean,
+        val speed: Float,
+        val checksum: String
+    )
+
+    data class EmergencyResult(
+        val contactsNotified: Int,
+        val evidenceCaptured: String,
+        val locationSecured: Boolean,
+        val backupCompleted: Boolean,
+        val perimeterSet: Boolean
+    )
+
+    data class LearningSession(
+        val mode: String,
+        val estimatedDuration: Int
+    )
+
+    data class LearningUpdate(
+        val progress: Int,
+        val patternsFound: Int,
+        val neuralSync: Int
+    )
+
+    data class ProtectionResult(
+        val neuralShield: String,
+        val encryptionLevel: String,
+        val monitoring: String,
+        val blockedThreats: Int,
+        val status: String
+    )
+
+    data class DirectConnection(
+        val established: Boolean,
+        val latency: Int,
+        val bandwidth: Float,
+        val syncLevel: Int
+    )
+
+    data class CommandResponse(
+        val summary: String,
+        val action: String
+    )
+
+    // Manager classes (simuladas)
+    inner class MilitaryProtocolManager(private val context: AppCompatActivity) {
+        private var currentMode: MilitaryMode = MilitaryMode.STANDARD
+        private var currentEncryption: EncryptionLevel = EncryptionLevel.STANDARD
+        private val activeProtocols = mutableListOf<String>()
+
+        suspend fun initialize() {
+            activeProtocols.addAll(listOf(
+                "ALPHA_PROTOCOL",
+                "BRAVO_PROTOCOL",
+                "CHARLIE_PROTOCOL",
+                "DELTA_PROTOCOL",
+                "ECHO_PROTOCOL",
+                "FOXTROT_PROTOCOL"
+            ))
+        }
+
+        fun setMode(mode: MilitaryMode) {
+            currentMode = mode
+        }
+
+        fun setEncryptionLevel(level: EncryptionLevel) {
+            currentEncryption = level
+        }
+
+        fun getActiveProtocols(): List<String> = activeProtocols.toList()
+    }
+
+    inner class NeuralSyncEngine {
+        suspend fun establishDirectLink(source: TacticalAICore, target: GuardianAICore): DirectConnection {
+            delay(1000)
+            return DirectConnection(
+                established = true,
+                latency = Random.nextInt(1, 10),
+                bandwidth = Random.nextFloat() * 10,
+                syncLevel = Random.nextInt(85, 100)
+            )
+        }
+    }
+
+    inner class TacticalAICore(private val context: AppCompatActivity) {
+        fun getStatus(): SystemStatus {
+            return SystemStatus(
+                cpuUsage = Random.nextInt(10, 40),
+                memoryUsage = Random.nextInt(30, 70),
+                activeSensors = 8,
+                temperature = 35.5f + Random.nextFloat() * 5,
+                mode = "TACTICAL",
+                alerts = 0,
+                lastActivities = listOf(
+                    Activity(System.currentTimeMillis() - 5000, "Análisis de entorno completado"),
+                    Activity(System.currentTimeMillis() - 10000, "Sincronización con Guardian"),
+                    Activity(System.currentTimeMillis() - 15000, "Actualización de protocolos")
+                )
+            )
+        }
+
+        fun processCommand(command: String): CommandResponse {
+            return CommandResponse(
+                summary = "Comando analizado: $command",
+                action = "Ejecutar protocolo estándar"
+            )
+        }
+    }
+
+    inner class GuardianAICore(private val context: AppCompatActivity) {
+        fun getStatus(): SystemStatus {
+            return SystemStatus(
+                cpuUsage = Random.nextInt(15, 45),
+                memoryUsage = Random.nextInt(40, 80),
+                activeSensors = 8,
+                temperature = 36.0f + Random.nextFloat() * 4,
+                mode = "GUARDIAN",
+                alerts = Random.nextInt(0, 3),
+                lastActivities = listOf(
+                    Activity(System.currentTimeMillis() - 3000, "Monitoreo activo del usuario"),
+                    Activity(System.currentTimeMillis() - 8000, "Análisis de amenazas completado"),
+                    Activity(System.currentTimeMillis() - 13000, "Backup automático realizado")
+                )
+            )
+        }
+
+        fun processCommand(command: String): CommandResponse {
+            return CommandResponse(
+                summary = "Guardian procesando: $command",
+                action = "Protección optimizada"
+            )
+        }
+    }
+
+    inner class EmergencyResponseSystem(private val context: AppCompatActivity) {
+        suspend fun activate(): EmergencyResult {
+            delay(2000)
+            return EmergencyResult(
+                contactsNotified = 5,
+                evidenceCaptured = "3 fotos, 1 audio, GPS",
+                locationSecured = true,
+                backupCompleted = true,
+                perimeterSet = true
+            )
+        }
+    }
+
+    inner class DataTransferProtocol {
+        fun prepareDataPacket(): DataPacket {
+            return DataPacket(
+                size = Random.nextInt(1024, 10240),
+                data = ByteArray(1024)
+            )
+        }
+
+        suspend fun transfer(data: DataPacket, target: GuardianAICore): TransferResult {
+            delay(1500)
+            return TransferResult(
+                success = true,
+                speed = Random.nextFloat() * 100,
+                checksum = "SHA256:${Random.nextLong()}"
+            )
+        }
+    }
+
+    inner class KnowledgeSyncManager {
+        suspend fun syncKnowledge(source: TacticalAICore, target: GuardianAICore): SyncResult {
+            delay(2000)
+            return SyncResult(
+                dataTransferred = Random.nextInt(50, 500),
+                integrity = Random.nextInt(95, 100),
+                newPatterns = Random.nextInt(10, 50)
+            )
+        }
+    }
+
+    inner class SharedLearningEngine {
+        fun createSession(): LearningSession {
+            return LearningSession(
+                mode = "COLLABORATIVE",
+                estimatedDuration = Random.nextInt(5, 15)
+            )
+        }
+
+        fun startLearning(source: TacticalAICore, target: GuardianAICore, session: LearningSession): Flow<LearningUpdate> = flow {
+            for (i in 0..100 step 10) {
+                emit(LearningUpdate(
+                    progress = i,
+                    patternsFound = Random.nextInt(0, 10),
+                    neuralSync = Random.nextInt(70, 100)
+                ))
+                delay(1000)
+            }
+        }
+    }
+
+    inner class ProtectionMatrix(private val context: AppCompatActivity) {
+        fun calculateThreatLevel(): ThreatLevel {
+            return ThreatLevel.values().random()
+        }
+
+        suspend fun deployProtection(level: ThreatLevel): ProtectionResult {
+            delay(1000)
+            return ProtectionResult(
+                neuralShield = "ACTIVO",
+                encryptionLevel = "QUANTUM",
+                monitoring = "24/7",
+                blockedThreats = Random.nextInt(0, 10),
+                status = "OPERACIONAL"
+            )
+        }
+    }
+
+    inner class QuantumEncryption {
+        fun encrypt(data: String): String {
+            return "QE_${data.hashCode()}_${System.currentTimeMillis()}"
+        }
+    }
+
+    inner class AIMessageAdapter : RecyclerView.Adapter<AIMessageAdapter.MessageViewHolder>() {
+        private val messages = mutableListOf<AIMessage>()
+
+        fun addMessage(message: AIMessage) {
+            messages.add(message)
+            notifyItemInserted(messages.size - 1)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
+            val view = layoutInflater.inflate(R.layout.layout_ai_message_item, parent, false)
+            return MessageViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
+            holder.bind(messages[position])
+        }
+
+        override fun getItemCount(): Int = messages.size
+
+        inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val tvSender: TextView = itemView.findViewById(R.id.tv_message_sender)
+            private val tvContent: TextView = itemView.findViewById(R.id.tv_message_content)
+            private val tvTimestamp: TextView = itemView.findViewById(R.id.tv_message_timestamp)
+            private val ivIcon: ImageView = itemView.findViewById(R.id.iv_message_icon)
+
+            fun bind(message: AIMessage) {
+                tvSender.text = message.sender.name
+                tvContent.text = message.content
+                tvTimestamp.text = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date(message.timestamp))
+
+                val iconRes = when (message.sender) {
+                    AISender.USER -> R.drawable.ic_user
+                    AISender.SYSTEM -> R.drawable.ic_system
+                    AISender.TACTICAL -> R.drawable.ic_military_ai_brain
+                    AISender.GUARDIAN -> R.drawable.guardian_ai_logo_shield
+                }
+                ivIcon.setImageResource(iconRes)
+
+                val cardColor = when (message.priority) {
+                    MessagePriority.CRITICAL -> Color.parseColor("#FFE5E5")
+                    MessagePriority.HIGH -> Color.parseColor("#FFF3E0")
+                    MessagePriority.NORMAL -> Color.parseColor("#FFFFFF")
+                    MessagePriority.LOW -> Color.parseColor("#F5F5F5")
+                }
+                itemView.setBackgroundColor(cardColor)
+            }
+        }
     }
 }

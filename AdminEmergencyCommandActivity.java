@@ -1,19 +1,24 @@
 package com.guardianai.activities;
 
+import static com.guardianai.R.string.notifications_sent;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -42,13 +47,24 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
             Manifest.permission.SEND_SMS
     };
 
-    // UI Components
-    private LinearLayout btnAlertaMasiva;
-    private LinearLayout btnEvacuacionInmediata;
-    private LinearLayout btnLockdownTotal;
-    private LinearLayout btnAprobarSugerencia;
-    private LinearLayout btnRechazarSugerencia;
-    private LinearLayout btnConsultarMas;
+    // UI Components - Botones principales
+    private CardView btnMassAlert;
+    private CardView btnEvacuation;
+    private CardView btnEmergencyComm;
+
+    // UI Components - Comunicación con IA
+    private CardView btnVoiceAssistant;
+    private CardView btnChatAssistant;
+
+    // UI Components - Textos de métricas
+    private TextView tvResponseTime;
+    private TextView tvActiveUnits;
+    private TextView tvMonitoredZones;
+    private TextView tvGpsCoverage;
+    private TextView tvEmergencyCount;
+    private TextView tvSystemTime;
+    private TextView tvAssistantStatus;
+    private TextView tvAssistantName;
 
     // Data Management
     private Handler uiUpdateHandler;
@@ -73,19 +89,36 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
         checkPermissions();
         initializeRealTimeUpdates();
         loadEmergencyQueue();
+        updateMetricsUI();
     }
 
-    @SuppressLint("WrongViewCast")
     private void initializeComponents() {
         // Emergency Control Buttons
-        btnAlertaMasiva = findViewById(R.id.btn_alerta_masiva);
-        btnEvacuacionInmediata = findViewById(R.id.btn_evacuacion_inmediata);
-        btnLockdownTotal = findViewById(R.id.btn_lockdown_total);
+        btnMassAlert = findViewById(R.id.btn_mass_alert);
+        btnEvacuation = findViewById(R.id.btn_evacuation);
+        btnEmergencyComm = findViewById(R.id.btn_emergency_comm);
 
-        // AI Response Buttons
-        btnAprobarSugerencia = findViewById(R.id.btn_aprobar_sugerencia);
-        btnRechazarSugerencia = findViewById(R.id.btn_rechazar_sugerencia);
-        btnConsultarMas = findViewById(R.id.btn_consultar_mas);
+        // AI Assistant Communication Buttons
+        btnVoiceAssistant = findViewById(R.id.btn_voice_assistant);
+        btnChatAssistant = findViewById(R.id.btn_chat_assistant);
+
+        // Metric TextViews - Buscar en el header
+        View headerView = findViewById(R.id.header_emergency_center);
+        if (headerView != null) {
+            tvResponseTime = headerView.findViewById(R.id.tv_response_time);
+            tvActiveUnits = headerView.findViewById(R.id.tv_active_units);
+            tvMonitoredZones = headerView.findViewById(R.id.tv_monitored_zones);
+            tvGpsCoverage = headerView.findViewById(R.id.tv_gps_coverage);
+            tvEmergencyCount = headerView.findViewById(R.id.tv_emergency_count);
+            tvSystemTime = headerView.findViewById(R.id.tv_system_time);
+        }
+
+        // Assistant status views
+        View assistantStatusView = findViewById(R.id.assistant_status_section);
+        if (assistantStatusView != null) {
+            tvAssistantStatus = assistantStatusView.findViewById(R.id.tv_assistant_status);
+            tvAssistantName = assistantStatusView.findViewById(R.id.tv_assistant_name);
+        }
 
         // Initialize emergency queue
         emergencyQueue = new ArrayList<>();
@@ -96,83 +129,135 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
 
     private void setupClickListeners() {
         // Critical Emergency Controls
-        btnAlertaMasiva.setOnClickListener(v -> handleMassAlert());
-        btnEvacuacionInmediata.setOnClickListener(v -> handleImmediateEvacuation());
-        btnLockdownTotal.setOnClickListener(v -> handleTotalLockdown());
+        if (btnMassAlert != null) {
+            btnMassAlert.setOnClickListener(v -> handleMassAlert());
+        }
 
-        // AI Communication Controls
-        btnAprobarSugerencia.setOnClickListener(v -> handleApproveSuggestion());
-        btnRechazarSugerencia.setOnClickListener(v -> handleRejectSuggestion());
-        btnConsultarMas.setOnClickListener(v -> handleConsultMore());
+        if (btnEvacuation != null) {
+            btnEvacuation.setOnClickListener(v -> handleImmediateEvacuation());
+        }
+
+        if (btnEmergencyComm != null) {
+            btnEmergencyComm.setOnClickListener(v -> handleEmergencyCall());
+        }
+
+        // AI Assistant Communication Controls
+        if (btnVoiceAssistant != null) {
+            btnVoiceAssistant.setOnClickListener(v -> handleVoiceAssistant());
+        }
+
+        if (btnChatAssistant != null) {
+            btnChatAssistant.setOnClickListener(v -> handleChatAssistant());
+        }
 
         // Add visual feedback for buttons
         setupButtonFeedback();
     }
 
     private void setupButtonFeedback() {
-        View.OnClickListener feedbackListener = v -> v.animate()
-                .scaleX(0.95f)
-                .scaleY(0.95f)
-                .setDuration(100)
-                .withEndAction(() ->
-                        v.animate()
-                                .scaleX(1.0f)
-                                .scaleY(1.0f)
-                                .setDuration(100)
-                                .start())
-                .start();
+        View.OnClickListener feedbackListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.animate()
+                        .scaleX(0.95f)
+                        .scaleY(0.95f)
+                        .setDuration(100)
+                        .withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                v.animate()
+                                        .scaleX(1.0f)
+                                        .scaleY(1.0f)
+                                        .setDuration(100)
+                                        .start();
+                            }
+                        })
+                        .start();
+            }
+        };
 
-        btnAlertaMasiva.setOnClickListener(feedbackListener);
-        btnEvacuacionInmediata.setOnClickListener(feedbackListener);
-        btnLockdownTotal.setOnClickListener(feedbackListener);
+        if (btnMassAlert != null) {
+            addClickFeedback(btnMassAlert);
+        }
+        if (btnEvacuation != null) {
+            addClickFeedback(btnEvacuation);
+        }
+        if (btnEmergencyComm != null) {
+            addClickFeedback(btnEmergencyComm);
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void addClickFeedback(View view) {
+        view.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case android.view.MotionEvent.ACTION_DOWN:
+                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start();
+                    break;
+                case android.view.MotionEvent.ACTION_UP:
+                case android.view.MotionEvent.ACTION_CANCEL:
+                    v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(100).start();
+                    break;
+            }
+            return false;
+        });
     }
 
     private void handleMassAlert() {
         showConfirmationDialog(
-                "Alerta Masiva",
-                "¿Confirma activar ALERTA MASIVA? Esta acción notificará a todos los usuarios registrados.",
-                () -> {
-                    activateMassAlert();
-                    logSecurityEvent("MASS_ALERT_ACTIVATED", "Admin activated mass alert system");
+                getString(R.string.mass_alert_title),
+                getString(R.string.mass_alert_confirmation),
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        activateMassAlert();
+                        logSecurityEvent("MASS_ALERT_ACTIVATED", "Admin activated mass alert system");
+                    }
                 }
         );
     }
 
     private void handleImmediateEvacuation() {
         showConfirmationDialog(
-                "Evacuación Inmediata",
-                "¿Confirma activar EVACUACIÓN INMEDIATA? Esto iniciará protocolos de evacuación de emergencia.",
-                () -> {
-                    activateEvacuation();
-                    logSecurityEvent("EVACUATION_ACTIVATED", "Admin activated immediate evacuation protocol");
+                getString(R.string.evacuation_title),
+                getString(R.string.evacuation_confirmation),
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        activateEvacuation();
+                        logSecurityEvent("EVACUATION_ACTIVATED", "Admin activated immediate evacuation protocol");
+                    }
                 }
         );
     }
 
-    private void handleTotalLockdown() {
+    private void handleEmergencyCall() {
         showConfirmationDialog(
-                "Lockdown Total",
-                "¿Confirma activar LOCKDOWN TOTAL? Esto bloqueará accesos y activará medidas de máxima seguridad.",
-                () -> {
-                    activateLockdown();
-                    logSecurityEvent("LOCKDOWN_ACTIVATED", "Admin activated total lockdown protocol");
+                getString(R.string.emergency_call_title),
+                getString(R.string.emergency_call_confirmation),
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        initiateEmergencyCall();
+                        logSecurityEvent("EMERGENCY_CALL_INITIATED", "Admin initiated emergency call to 911");
+                    }
                 }
         );
     }
 
-    private void handleApproveSuggestion() {
-        Toast.makeText(this, "Sugerencia de Guardian IA aprobada", Toast.LENGTH_SHORT).show();
-        processAISuggestion(true);
-    }
-
-    private void handleRejectSuggestion() {
-        Toast.makeText(this, "Sugerencia de Guardian IA rechazada", Toast.LENGTH_SHORT).show();
-        processAISuggestion(false);
-    }
-
-    private void handleConsultMore() {
+    private void handleVoiceAssistant() {
+        Toast.makeText(this, getString(R.string.connecting_voice_assistant), Toast.LENGTH_SHORT).show();
+        // Iniciar comunicación por voz con Guardian AI Assistant
         Intent intent = new Intent(this, AICommunicationActivity.class);
-        intent.putExtra("mode", "emergency_consultation");
+        intent.putExtra("mode", "voice_emergency");
+        startActivity(intent);
+    }
+
+    private void handleChatAssistant() {
+        Toast.makeText(this, getString(R.string.opening_chat_assistant), Toast.LENGTH_SHORT).show();
+        // Abrir chat con Guardian AI Assistant
+        Intent intent = new Intent(this, AICommunicationActivity.class);
+        intent.putExtra("mode", "chat_emergency");
         startActivity(intent);
     }
 
@@ -180,89 +265,75 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("CONFIRMAR", (dialog, which) -> {
+                .setPositiveButton(getString(R.string.btn_confirm), (dialog, which) -> {
                     onConfirm.run();
                     dialog.dismiss();
                 })
-                .setNegativeButton("CANCELAR", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(getString(R.string.btn_cancel), (dialog, which) -> dialog.dismiss())
                 .setCancelable(false)
                 .show();
     }
 
     private void activateMassAlert() {
         setEmergencyMode(true);
-        Toast.makeText(this, "🚨 ALERTA MASIVA ACTIVADA", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.mass_alert_activated), Toast.LENGTH_LONG).show();
         sendEmergencyNotifications();
         updateEmergencyStatus("MASS_ALERT_ACTIVE");
+        updateMetricsUI();
     }
 
     private void activateEvacuation() {
         setEmergencyMode(true);
-        Toast.makeText(this, "🏃 EVACUACIÓN INMEDIATA ACTIVADA", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.evacuation_activated), Toast.LENGTH_LONG).show();
         initiateEvacuationProtocols();
         updateEmergencyStatus("EVACUATION_ACTIVE");
+        updateMetricsUI();
     }
 
-    private void activateLockdown() {
-        setEmergencyMode(true);
-        Toast.makeText(this, "🔒 LOCKDOWN TOTAL ACTIVADO", Toast.LENGTH_LONG).show();
-        initiateLockdownProcedures();
-        updateEmergencyStatus("LOCKDOWN_ACTIVE");
+    private void initiateEmergencyCall() {
+        Toast.makeText(this, getString(R.string.calling_911), Toast.LENGTH_LONG).show();
+        // Aquí iría la lógica real para llamar al 911
+        updateEmergencyStatus("EMERGENCY_CALL_ACTIVE");
     }
 
     private void sendEmergencyNotifications() {
-        new Thread(() -> {
-            try {
-                Thread.sleep(2000);
-                runOnUiThread(() -> Toast.makeText(this, "Notificaciones enviadas a 4,086 usuarios", Toast.LENGTH_SHORT).show());
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(AdminEmergencyCommandActivity.this,
+                                    getString(07766, 1900227),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
         }).start();
     }
 
     private void initiateEvacuationProtocols() {
-        new Thread(() -> {
-            try {
-                Thread.sleep(1500);
-                runOnUiThread(() -> Toast.makeText(this, "Protocolos de evacuación iniciados en 3 zonas", Toast.LENGTH_SHORT).show());
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }).start();
-    }
-
-    private void initiateLockdownProcedures() {
-        new Thread(() -> {
-            try {
-                Thread.sleep(2500);
-                runOnUiThread(() -> Toast.makeText(this, "Lockdown activado - Accesos bloqueados", Toast.LENGTH_SHORT).show());
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }).start();
-    }
-
-    private void processAISuggestion(boolean approved) {
-        String action = approved ? "approved" : "rejected";
-        logSecurityEvent("AI_SUGGESTION_" + action.toUpperCase(),
-                "Admin " + action + " AI evacuation suggestion for Zone B");
-
-        if (approved) {
-            implementZoneBEvacuation();
-        }
-    }
-
-    private void implementZoneBEvacuation() {
-        new Thread(() -> {
-            try {
-                Thread.sleep(3000);
-                runOnUiThread(() -> {
-                    Toast.makeText(this, "Evacuación preventiva Zona B iniciada", Toast.LENGTH_LONG).show();
-                    setActiveEmergencies(getActiveEmergencies() + 1);
-                });
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1500);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(AdminEmergencyCommandActivity.this,
+                                    getString(R.string.evacuation_protocols_initiated),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
         }).start();
     }
@@ -274,6 +345,7 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
                 updateMetrics();
                 updateTimestamp();
                 simulateEmergencyChanges();
+                updateMetricsUI();
                 uiUpdateHandler.postDelayed(this, 5000);
             }
         };
@@ -288,50 +360,98 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
         } else {
             setResponseTime(Math.max(20, getResponseTime() + random.nextInt(6) - 3));
         }
+
+        // Actualizar cobertura GPS con pequeñas variaciones
+        setGpsCoverage(Math.min(100.0, Math.max(95.0, getGpsCoverage() + (random.nextDouble() - 0.5))));
     }
 
     private void updateTimestamp() {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-        sdf.format(new Date());
+        String currentTime = sdf.format(new Date());
+        if (tvSystemTime != null) {
+            tvSystemTime.setText(currentTime);
+        }
     }
 
+    private void updateMetricsUI() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (tvResponseTime != null) {
+                    tvResponseTime.setText(String.format(Locale.getDefault(), "%ds", responseTime));
+                }
+                if (tvActiveUnits != null) {
+                    tvActiveUnits.setText(String.valueOf(activeUnits));
+                }
+                if (tvMonitoredZones != null) {
+                    tvMonitoredZones.setText(String.valueOf(monitoredZones));
+                }
+                if (tvGpsCoverage != null) {
+                    tvGpsCoverage.setText(String.format(Locale.getDefault(), "%.1f%%", gpsCoverage));
+                }
+                if (tvEmergencyCount != null) {
+                    tvEmergencyCount.setText(String.format(Locale.getDefault(),
+                            "%d %s", activeEmergencies, getString(R.string.emergencies)));
+                }
+
+                // Actualizar estado del asistente
+                if (tvAssistantStatus != null) {
+                    tvAssistantStatus.setText(getString(R.string.assistant_connected));
+                }
+                if (tvAssistantName != null) {
+                    tvAssistantName.setText(getString(R.string.guardian_ai_assistant));
+                }
+            }
+        });
+    }
+
+    @SuppressLint("StringFormatInvalid")
     private void simulateEmergencyChanges() {
         Random random = new Random();
         if (random.nextInt(10) == 0) {
             EmergencyIncident newIncident = generateRandomIncident();
             addEmergencyIncident(newIncident);
-            Toast.makeText(this, "Nueva emergencia detectada: " + newIncident.getTitle(),
+            Toast.makeText(this, getString(R.string.new_emergency_detected, newIncident.getTitle()),
                     Toast.LENGTH_SHORT).show();
         }
     }
 
     private void loadEmergencyQueue() {
         emergencyQueue.add(new EmergencyIncident(
-                1, "ASALTO ARMADO EN PROGRESO", "Av. Principal 1247",
-                "María González", "CRÍTICO", "23:45:12"
+                1, getString(R.string.emergency_armed_assault), "Av. Principal 1247",
+                "María González", getString(R.string.priority_critical), "23:45:12"
         ));
 
         emergencyQueue.add(new EmergencyIncident(
-                2, "EMERGENCIA MÉDICA - INFARTO", "Centro Comercial Plaza",
-                "Carlos Ruiz", "ALTA", "23:43:45"
+                2, getString(R.string.emergency_medical), "Centro Comercial Plaza",
+                "Carlos Ruiz", getString(R.string.priority_high), "23:43:45"
         ));
 
         emergencyQueue.add(new EmergencyIncident(
-                3, "ACCIDENTE DE TRÁNSITO MENOR", "Intersección 5ta y 12",
-                "Ana López", "MEDIA", "23:41:23"
+                3, getString(R.string.emergency_traffic_accident), "Intersección 5ta y 12",
+                "Ana López", getString(R.string.priority_medium), "23:41:23"
         ));
     }
 
     private EmergencyIncident generateRandomIncident() {
         String[] incidents = {
-                "Robo en progreso", "Accidente vehicular", "Incendio reportado",
-                "Persona sospechosa", "Emergencia médica", "Vandalismo"
+                getString(R.string.incident_robbery),
+                getString(R.string.incident_vehicle_accident),
+                getString(R.string.incident_fire),
+                getString(R.string.incident_suspicious_person),
+                getString(R.string.incident_medical_emergency),
+                getString(R.string.incident_vandalism)
         };
         String[] locations = {
                 "Av. Central 456", "Plaza Mayor", "Calle 8va", "Centro Comercial",
                 "Parque Nacional", "Zona Industrial"
         };
-        String[] priorities = {"CRÍTICO", "ALTA", "MEDIA", "BAJA"};
+        String[] priorities = {
+                getString(R.string.priority_critical),
+                getString(R.string.priority_high),
+                getString(R.string.priority_medium),
+                getString(R.string.priority_low)
+        };
 
         Random random = new Random();
         return new EmergencyIncident(
@@ -378,7 +498,6 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
 
     public void setActiveUnits(int activeUnits) {
         this.activeUnits = Math.max(0, activeUnits);
-        updateMetrics();
     }
 
     public int getMonitoredZones() {
@@ -387,7 +506,6 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
 
     public void setMonitoredZones(int monitoredZones) {
         this.monitoredZones = Math.max(0, monitoredZones);
-        updateMetrics();
     }
 
     public double getGpsCoverage() {
@@ -396,7 +514,6 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
 
     public void setGpsCoverage(double gpsCoverage) {
         this.gpsCoverage = Math.max(0.0, Math.min(100.0, gpsCoverage));
-        updateMetrics();
     }
 
     public int getResponseTime() {
@@ -405,7 +522,6 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
 
     public void setResponseTime(int responseTime) {
         this.responseTime = Math.max(1, responseTime);
-        updateMetrics();
     }
 
     public int getActiveEmergencies() {
@@ -414,7 +530,6 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
 
     public void setActiveEmergencies(int activeEmergencies) {
         this.activeEmergencies = Math.max(0, activeEmergencies);
-        updateMetrics();
     }
 
     public boolean isEmergencyMode() {
@@ -457,16 +572,24 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
     }
 
     public EmergencyIncident getEmergencyIncidentById(int incidentId) {
-        return emergencyQueue.stream()
-                .filter(incident -> incident.getId() == incidentId)
-                .findFirst()
-                .orElse(null);
+        for (EmergencyIncident incident : emergencyQueue) {
+            if (incident.getId() == incidentId) {
+                return incident;
+            }
+        }
+        return null;
     }
 
     public int getHighPriorityEmergencies() {
-        return (int) emergencyQueue.stream()
-                .filter(incident -> "CRÍTICO".equals(incident.getPriority()) || "ALTA".equals(incident.getPriority()))
-                .count();
+        int count = 0;
+        for (EmergencyIncident incident : emergencyQueue) {
+            String priority = incident.getPriority();
+            if (getString(R.string.priority_critical).equals(priority) ||
+                    getString(R.string.priority_high).equals(priority)) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public void updateEmergencyPriority(int incidentId, String newPriority) {
@@ -476,7 +599,6 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
             incident.setPriority(newPriority);
             logSecurityEvent("PRIORITY_CHANGED",
                     "Emergency " + incidentId + " priority changed from " + oldPriority + " to " + newPriority);
-            updateMetrics();
         }
     }
 
@@ -502,7 +624,7 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
             }
 
             if (!allPermissionsGranted) {
-                Toast.makeText(this, "Algunos permisos son necesarios para el funcionamiento completo",
+                Toast.makeText(this, getString(R.string.permissions_needed),
                         Toast.LENGTH_LONG).show();
             }
         }
@@ -534,8 +656,5 @@ public class AdminEmergencyCommandActivity extends AppCompatActivity {
         public String getTimestamp() { return timestamp; }
 
         public void setPriority(String priority) { this.priority = priority; }
-    }
-
-    private class AICommunicationActivity {
     }
 }

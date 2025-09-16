@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Guardian IA</string>
     
     <!-- Actividades -->
@@ -204,5 +204,101 @@
     <string name="music_binaural">Ondas Binaurales</string>
     <string name="music_nature">Sonidos de la Naturaleza</string>
     <string name="music_ambient">Ambiente</string>
+    <!-- AI Communication Activity -->
+    <string name="tactical_ai">TACTICAL AI</string>
+    <string name="primary_unit">Unidad Primaria</string>
+    <string name="guardian">GUARDIAN</string>
+    <string name="secondary_unit">Unidad Secundaria</string>
+    <string name="latency">Latencia</string>
+    <string name="synced">Sincronizados</string>
+    <string name="protocols">Protocolos</string>
+    <string name="inter_ai_commands">Comandos Inter-IA</string>
+    <string name="cmd_sync">Sincronizar</string>
+    <string name="knowledge">Conocimiento</string>
+    <string name="cmd_transfer">Transferir</string>
+    <string name="data">Datos</string>
+    <string name="cmd_query">Consultar</string>
+    <string name="status">Estado</string>
+    <string name="cmd_activate">Activar</string>
+    <string name="emergency">Emergencia</string>
+    <string name="cmd_learn">Aprender</string>
+    <string name="together">Juntas</string>
+    <string name="cmd_protect">Proteger</string>
+    <string name="user">Usuario</string>
+    <string name="neural_direct_communication">Comunicación Neural Directa</string>
+    <string name="active">ACTIVO</string>
+    <string name="send_command_hint">Enviar comando a Guardian AI...</string>
+    <string name="send_neural_command">Enviar comando neural</string>
+    <string name="guardian_ai_status">Estado de Guardian AI</string>
+    <string name="cpu_usage">CPU Usage</string>
+    <string name="memory">Memory</string>
+    <string name="sensors">Sensores</string>
+    <string name="last_guardian_activity">Última Actividad de Guardian AI</string>
+    <string name="direct_communication">Comunicación Directa</string>
+    <string name="emergencies" />
+    <string name="assistant_connected" />
+    <string name="guardian_ai_assistant" />
+
+    <!-- Drawables references as resources -->
+    <drawable name="ic_user">#2196F3</drawable>
+    <drawable name="ic_system">#9E9E9E</drawable>
+    <drawable name="ic_military_ai_brain">#1B5E20</drawable>
+    <drawable name="guardian_ai_logo_shield">#D32F2F</drawable>
+    <!-- Admin Emergency Command Activity -->
+    <string name="emergency_command_center">🚨 CENTRO DE COMANDO EMERGENCIAS</string>
+    <string name="central_operations_room">Sala de operaciones central • Sistema de protección</string>
+    <string name="active_emergencies_count">3 EMERGENCIAS</string>
+    <string name="response_time">TIEMPO RESPUESTA</string>
+    <string name="active_units">UNIDADES ACTIVAS</string>
+    <string name="monitored_zones">ZONAS MONITOREADAS</string>
+    <string name="gps_coverage">COBERTURA GPS</string>
+    <string name="emergencies" tools:ignore="DuplicateDefinition">EMERGENCIAS</string>
+    <string name="critical_emergency_controls">⚡ CONTROLES CRÍTICOS DE EMERGENCIA</string>
+    <string name="mass_alert">ALERTA MASIVA</string>
+    <string name="evacuation">EVACUACIÓN</string>
+    <string name="call_911">LLAMAR 911</string>
+    <string name="guardian_ai_assistant" tools:ignore="DuplicateDefinition">GUARDIAN AI ASSISTANT</string>
+    <string name="assistant_status">🟢 Conectada • IA Asistente Principal</string>
+    <string name="assistant_connected" tools:ignore="DuplicateDefinition">Conectada y operativa</string>
+    <string name="voice">VOZ</string>
+    <string name="chat">CHAT</string>
+
+    <!-- Confirmaciones y títulos de diálogo -->
+    <string name="mass_alert_title">Alerta Masiva</string>
+    <string name="mass_alert_confirmation">¿Confirma activar ALERTA MASIVA? Esta acción notificará a todos los usuarios registrados.</string>
+    <string name="evacuation_title">Evacuación Inmediata</string>
+    <string name="evacuation_confirmation">¿Confirma activar EVACUACIÓN INMEDIATA? Esto iniciará protocolos de evacuación de emergencia.</string>
+    <string name="emergency_call_title">Llamada de Emergencia</string>
+    <string name="emergency_call_confirmation">¿Confirma realizar llamada de emergencia al 911?</string>
+    <string name="btn_confirm">CONFIRMAR</string>
+
+    <!-- Mensajes de estado -->
+    <string name="mass_alert_activated">🚨 ALERTA MASIVA ACTIVADA</string>
+    <string name="evacuation_activated">🏃 EVACUACIÓN INMEDIATA ACTIVADA</string>
+    <string name="calling_911">📞 Llamando al 911...</string>
+    <string name="connecting_voice_assistant">Conectando asistente de voz...</string>
+    <string name="opening_chat_assistant">Abriendo chat con asistente...</string>
+    <string name="notifications_sent">Notificaciones enviadas a %d usuarios</string>
+    <string name="evacuation_protocols_initiated">Protocolos de evacuación iniciados en 3 zonas</string>
+    <string name="new_emergency_detected">Nueva emergencia detectada: %s</string>
+    <string name="permissions_needed">Algunos permisos son necesarios para el funcionamiento completo</string>
+
+    <!-- Prioridades -->
+    <string name="priority_critical">CRÍTICO</string>
+    <string name="priority_high">ALTA</string>
+    <string name="priority_medium">MEDIA</string>
+    <string name="priority_low">BAJA</string>
+
+    <!-- Tipos de emergencias -->
+    <string name="emergency_armed_assault">ASALTO ARMADO EN PROGRESO</string>
+    <string name="emergency_medical">EMERGENCIA MÉDICA - INFARTO</string>
+    <string name="emergency_traffic_accident">ACCIDENTE DE TRÁNSITO MENOR</string>
+    <string name="incident_robbery">Robo en progreso</string>
+    <string name="incident_vehicle_accident">Accidente vehicular</string>
+    <string name="incident_fire">Incendio reportado</string>
+    <string name="incident_suspicious_person">Persona sospechosa</string>
+    <string name="incident_medical_emergency">Emergencia médica</string>
+    <string name="incident_vandalism">Vandalismo</string>
+
 </resources>
 

@@ -1,0 +1,282 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GuardianIA" parent="Theme.Material3.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/guardian_primary</item>
+        <item name="colorPrimaryVariant">@color/guardian_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/guardian_accent</item>
+        <item name="colorSecondaryVariant">@color/guardian_accent_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="colorSurface">@color/surface_light</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorError">@color/guardian_error</item>
+        <item name="colorOnError">@color/white</item>
+    </style>
+
+    <!-- Theme without action bar -->
+    <style name="Theme.GuardianIA.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Theme for splash screen -->
+    <style name="Theme.GuardianIA.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/guardian_primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.GuardianIA</item>
+    </style>
+
+    <!-- Dark theme -->
+    <style name="Theme.GuardianIA.Dark" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/guardian_primary_light</item>
+        <item name="colorPrimaryVariant">@color/guardian_primary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/guardian_accent_light</item>
+        <item name="colorSecondaryVariant">@color/guardian_accent</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background_dark</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+        <item name="colorError">@color/guardian_error</item>
+        <item name="colorOnError">@color/white</item>
+    </style>
+
+    <!-- Button styles -->
+    <style name="GuardianButton" parent="Widget.Material3.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/guardian_primary</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="GuardianButton.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/guardian_primary</item>
+        <item name="strokeColor">@color/guardian_primary</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="GuardianButton.Success">
+        <item name="backgroundTint">@color/guardian_success</item>
+    </style>
+
+    <style name="GuardianButton.Warning">
+        <item name="backgroundTint">@color/guardian_warning</item>
+    </style>
+
+    <style name="GuardianButton.Error">
+        <item name="backgroundTint">@color/guardian_error</item>
+    </style>
+
+    <!-- Card styles -->
+    <style name="GuardianCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="GuardianCard.Flat" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/surface_variant_light</item>
+    </style>
+
+    <!-- Text styles -->
+    <style name="GuardianText">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="GuardianText.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="GuardianText.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="GuardianText.Subtitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="GuardianText.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="GuardianText.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Input styles -->
+    <style name="GuardianTextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxStrokeColor">@color/guardian_primary</item>
+        <item name="hintTextColor">@color/text_hint</item>
+    </style>
+
+    <!-- Progress styles -->
+    <style name="GuardianProgressBar" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="trackColor">@color/surface_variant_light</item>
+        <item name="indicatorColor">@color/guardian_primary</item>
+        <item name="trackCornerRadius">4dp</item>
+        <item name="indicatorCornerRadius">4dp</item>
+    </style>
+
+    <style name="GuardianProgressBar.Success">
+        <item name="indicatorColor">@color/guardian_success</item>
+    </style>
+
+    <style name="GuardianProgressBar.Warning">
+        <item name="indicatorColor">@color/guardian_warning</item>
+    </style>
+
+    <style name="GuardianProgressBar.Error">
+        <item name="indicatorColor">@color/guardian_error</item>
+    </style>
+
+    <!-- Switch styles -->
+    <style name="GuardianSwitch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="thumbTint">@color/guardian_primary</item>
+        <item name="trackTint">@color/guardian_primary_light</item>
+    </style>
+
+    <!-- Chip styles -->
+    <style name="GuardianChip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipBackgroundColor">@color/guardian_primary_light</item>
+        <item name="android:textColor">@color/guardian_primary_dark</item>
+        <item name="chipCornerRadius">16dp</item>
+    </style>
+
+    <style name="GuardianChip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/surface_variant_light</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="checkedIconTint">@color/guardian_primary</item>
+    </style>
+
+    <!-- Toolbar styles -->
+    <style name="GuardianToolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/guardian_primary</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:theme">@style/ThemeOverlay.Material3.Dark</item>
+    </style>
+
+    <!-- Bottom navigation styles -->
+    <style name="GuardianBottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/surface_light</item>
+        <item name="itemIconTint">@color/guardian_primary</item>
+        <item name="itemTextColor">@color/guardian_primary</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+    <!-- Tab layout styles -->
+    <style name="GuardianTabLayout" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@color/guardian_primary</item>
+        <item name="tabTextColor">@color/white</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabIndicatorColor">@color/guardian_accent</item>
+        <item name="tabIndicatorHeight">3dp</item>
+    </style>
+
+    <!-- Floating Action Button styles -->
+    <style name="GuardianFAB" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/guardian_accent</item>
+        <item name="tint">@color/white</item>
+        <item name="elevation">6dp</item>
+    </style>
+
+    <!-- Dialog styles -->
+    <style name="GuardianDialog" parent="ThemeOverlay.Material3.Dialog">
+        <item name="colorPrimary">@color/guardian_primary</item>
+        <item name="colorSecondary">@color/guardian_accent</item>
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
+
+    <!-- Alert dialog styles -->
+    <style name="GuardianAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/guardian_primary</item>
+        <item name="colorSecondary">@color/guardian_accent</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/GuardianText.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/GuardianText.Body</item>
+    </style>
+
+    <!-- Bottom sheet styles -->
+    <style name="GuardianBottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="android:background">@drawable/bottom_sheet_background</item>
+        <item name="behavior_peekHeight">200dp</item>
+        <item name="behavior_hideable">true</item>
+    </style>
+
+    <!-- Snackbar styles -->
+    <style name="GuardianSnackbar" parent="Widget.Material3.Snackbar">
+        <item name="android:background">@color/guardian_primary_dark</item>
+        <item name="actionTextColor">@color/guardian_accent</item>
+    </style>
+
+    <!-- Security level styles -->
+    <style name="SecurityLevel">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/security_level_background</item>
+    </style>
+
+    <style name="SecurityLevel.Safe">
+        <item name="android:textColor">@color/security_safe</item>
+    </style>
+
+    <style name="SecurityLevel.Warning">
+        <item name="android:textColor">@color/security_warning</item>
+    </style>
+
+    <style name="SecurityLevel.Danger">
+        <item name="android:textColor">@color/security_danger</item>
+    </style>
+
+    <style name="SecurityLevel.Critical">
+        <item name="android:textColor">@color/security_critical</item>
+    </style>
+
+    <!-- AI status styles -->
+    <style name="AIStatus">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ai_status_background</item>
+    </style>
+
+    <style name="AIStatus.Active">
+        <item name="android:textColor">@color/ai_active</item>
+    </style>
+
+    <style name="AIStatus.Learning">
+        <item name="android:textColor">@color/ai_learning</item>
+    </style>
+
+    <style name="AIStatus.Thinking">
+        <item name="android:textColor">@color/ai_thinking</item>
+    </style>
+
+    <style name="AIStatus.Responding">
+        <item name="android:textColor">@color/ai_responding</item>
+    </style>
+</resources>
+

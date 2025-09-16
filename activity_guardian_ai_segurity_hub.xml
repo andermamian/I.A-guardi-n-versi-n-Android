@@ -1,0 +1,1741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="linear-gradient(135deg, #0F0C29 0%, #24243e 25%, #302b63 50%, #0f3460 75%, #0a2472 100%)">
+
+    <!-- HEADER ÉPICO DE SEGURIDAD TOTAL -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="40dp"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 40%, #f5576c 60%, #4facfe 80%, #00f2fe 100%)">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <!-- MEGA LOGO PROTECCIÓN TOTAL -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="30dp"
+                    app:cardBackgroundColor="linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #F7DC6F, #BB8FCE, #85C1E9)">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🛡️"
+                                android:textSize="28sp"
+                                android:layout_marginEnd="2dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🤖"
+                                android:textSize="24sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginTop="-4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔒"
+                                android:textSize="18sp"
+                                android:layout_marginEnd="2dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🏥"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="28dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:shadowColor="#000000"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="12"
+                        android:text="🛡️ GUARDIAN AI SECURITY HUB"
+                        android:textColor="#DE1414"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:alpha="0.95"
+                        android:fontStyle="italic"
+                        android:text="Protección IA integral • Antirrobo inteligente • Análisis médico • Defensa adaptativa"
+                        android:textColor="#0B0B0B"
+                        android:textSize="11sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="12dp"
+                            app:cardBackgroundColor="#00FF41">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🟢 PROTEGIDO"
+                                android:textSize="9sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:padding="8dp" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="12dp"
+                            app:cardBackgroundColor="#FFD700">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔒 SEGURO"
+                                android:textSize="9sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:padding="8dp" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#FF1744"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="12dp"
+                            android:text="🚨 SOS MÉDICO"
+                            android:textColor="#0D0C0C"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Emergencia Rápida"
+                        android:textColor="#101010"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- MÉTRICAS DE PROTECCIÓN INTEGRAL -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="18dp"
+                    app:cardBackgroundColor="rgba(255,255,255,0.25)">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🦠"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="1,247"
+                            android:textColor="#181717"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AMENAZAS BLOQUEADAS"
+                            android:textSize="7sp"
+                            android:textStyle="bold"
+                            android:textColor="#F8F9FA"
+                            android:textAlignment="center"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="18dp"
+                    app:cardBackgroundColor="rgba(255,255,255,0.25)">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📍"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="SEGURA"
+                            android:textColor="#0F0E0E"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="UBICACIÓN ACTUAL"
+                            android:textSize="7sp"
+                            android:textStyle="bold"
+                            android:textColor="#F8F9FA"
+                            android:textAlignment="center"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="18dp"
+                    app:cardBackgroundColor="rgba(255,255,255,0.25)">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏥"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="23"
+                            android:textColor="#101010"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DOCS MÉDICOS"
+                            android:textSize="7sp"
+                            android:textStyle="bold"
+                            android:textColor="#F8F9FA"
+                            android:textAlignment="center"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="18dp"
+                    app:cardBackgroundColor="rgba(255,255,255,0.25)">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📱"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="156"
+                            android:textColor="#181717"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="APPS VIGILADAS"
+                            android:textSize="7sp"
+                            android:textStyle="bold"
+                            android:textColor="#F8F9FA"
+                            android:textAlignment="center"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- ESCUDO CENTRAL INTERACTIVO MEGA ÉPICO -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="35dp"
+        app:cardBackgroundColor="linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛡️ ESCUDO PROTECTOR TOTAL"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="24dp"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="8" />
+
+            <!-- CÍRCULO DE PROTECCIÓN MULTICAPA -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                app:cardCornerRadius="140dp"
+                app:cardElevation="25dp"
+                app:cardBackgroundColor="linear-gradient(45deg, #00FF41 0%, #32CD32 25%, #7FFF00 50%, #ADFF2F 75%, #9AFF9A 100%)"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- ANILLO EXTERIOR - ANTIRROBO -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="240dp"
+                        android:layout_height="240dp"
+                        app:cardCornerRadius="120dp"
+                        app:cardElevation="20dp"
+                        app:cardBackgroundColor="linear-gradient(45deg, #FFD700 0%, #FFA500 25%, #FF8C00 50%, #FF6347 75%, #FF4500 100%)">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <!-- ANILLO MEDIO - ANTIVIRUS -->
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                app:cardCornerRadius="100dp"
+                                app:cardElevation="15dp"
+                                app:cardBackgroundColor="linear-gradient(45deg, #4FACFE 0%, #00F2FE 25%, #43CBFF 50%, #9708CC 75%, #43CBFF 100%)">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:gravity="center">
+
+                                    <!-- NÚCLEO CENTRAL - PORCENTAJE -->
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="140dp"
+                                        android:layout_height="140dp"
+                                        app:cardCornerRadius="70dp"
+                                        app:cardElevation="20dp"
+                                        app:cardBackgroundColor="#FFFFFF">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical"
+                                            android:gravity="center">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="98.7%"
+                                                android:textSize="32sp"
+                                                android:textStyle="bold"
+                                                android:textColor="#2E7D32"
+                                                android:fontFamily="sans-serif-black" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="SEGURIDAD TOTAL"
+                                                android:textSize="10sp"
+                                                android:textStyle="bold"
+                                                android:textColor="#1B5E20"
+                                                android:textAlignment="center"
+                                                android:layout_marginTop="4dp" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal"
+                                                android:layout_marginTop="8dp">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="🛡️"
+                                                    android:textSize="12sp"
+                                                    android:layout_marginEnd="4dp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="🔒"
+                                                    android:textSize="12sp"
+                                                    android:layout_marginEnd="4dp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="🏥"
+                                                    android:textSize="12sp" />
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- LEYENDA DE CAPAS DE PROTECCIÓN -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:text="●"
+                        android:textSize="12sp"
+                        android:textColor="#00FF41"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="GPS/ANTIRROBO"
+                        android:textColor="#101010"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:text="●"
+                        android:textSize="12sp"
+                        android:textColor="#FFD700"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="ANTIVIRUS/FIREWALL"
+                        android:textColor="#161515"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:text="●"
+                        android:textSize="12sp"
+                        android:textColor="#4FACFE"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="DATOS MÉDICOS"
+                        android:textColor="#0F0E0E"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- CONTENIDO PRINCIPAL SCROLL -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- GRID DE PROTECCIÓN ACTIVA EXPANDIDO (2x3) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="25dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ PROTECCIÓN ACTIVA EN TIEMPO REAL"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D3748"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <!-- FILA SUPERIOR - PROTECCIÓN DIGITAL -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="12dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="15dp"
+                            app:cardBackgroundColor="linear-gradient(135deg, #667eea, #764ba2)"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🦠"
+                                    android:textSize="36sp"
+                                    android:layout_marginBottom="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ANTIVIRUS IA"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FFFFFF"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Escaneos en tiempo real"
+                                    android:textSize="9sp"
+                                    android:textColor="#E3F2FD"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="4dp" />
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp"
+                                    app:cardBackgroundColor="#00FF41">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="✓ ACTIVO"
+                                        android:textSize="8sp"
+                                        android:textStyle="bold"
+                                        android:textColor="#000000"
+                                        android:padding="6dp" />
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="12dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="15dp"
+                            app:cardBackgroundColor="linear-gradient(135deg, #f093fb, #f5576c)"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🔥"
+                                    android:textSize="36sp"
+                                    android:layout_marginBottom="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="FIREWALL ADAPTIVO"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FFFFFF"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tráfico de red vigilado"
+                                    android:textSize="9sp"
+                                    android:textColor="#FFE1E6"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="4dp" />
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp"
+                                    app:cardBackgroundColor="#FFD700">
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="12dp"
+                                    app:cardCornerRadius="20dp"
+                                    app:cardElevation="15dp"
+                                    app:cardBackgroundColor="linear-gradient(135deg, #4facfe, #00f2fe)"
+                                    android:clickable="true"
+                                    android:focusable="true">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:padding="16dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="🚨"
+                                            android:textSize="36sp"
+                                            android:layout_marginBottom="8dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="ANTI-MALWARE"
+                                            android:textSize="12sp"
+                                            android:textStyle="bold"
+                                            android:textColor="#FFFFFF"
+                                            android:textAlignment="center" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Comportamiento vigilado"
+                                            android:textSize="9sp"
+                                            android:textColor="#E1F5FE"
+                                            android:textAlignment="center"
+                                            android:layout_marginTop="4dp" />
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:cardCornerRadius="12dp"
+                                            app:cardElevation="6dp"
+                                            app:cardBackgroundColor="#00FF41">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="🛡️ BLOQUEANDO"
+                                                android:textSize="8sp"
+                                                android:textStyle="bold"
+                                                android:textColor="#000000"
+                                                android:padding="6dp" />
+
+                                        </androidx.cardview.widget.CardView>
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="120dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="12dp"
+                                    app:cardCornerRadius="20dp"
+                                    app:cardElevation="15dp"
+                                    app:cardBackgroundColor="linear-gradient(135deg, #10b981, #059669)"
+                                    android:clickable="true"
+                                    android:focusable="true">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        android:gravity="center"
+                                        android:padding="16dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="🌐"
+                                            android:textSize="36sp"
+                                            android:layout_marginBottom="8dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="PROTECCIÓN WEB"
+                                            android:textSize="12sp"
+                                            android:textStyle="bold"
+                                            android:textColor="#FFFFFF"
+                                            android:textAlignment="center" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Navegación segura"
+                                            android:textSize="9sp"
+                                            android:textColor="#D1FAE5"
+                                            android:textAlignment="center"
+                                            android:layout_marginTop="4dp" />
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:cardCornerRadius="12dp"
+                                            app:cardElevation="6dp"
+                                            app:cardBackgroundColor="#4FACFE">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="🔒 FILTRANDO"
+                                                android:textSize="8sp"
+                                                android:textStyle="bold"
+                                                android:textColor="#FFFFFF"
+                                                android:padding="6dp" />
+
+                                        </androidx.cardview.widget.CardView>
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                        <!-- FILA INFERIOR - PROTECCIÓN ESPECIALIZADA -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="140dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="20dp"
+                                app:cardElevation="15dp"
+                                app:cardBackgroundColor="linear-gradient(135deg, #f59e0b, #d97706)"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    android:padding="16dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="🔒"
+                                        android:textSize="40sp"
+                                        android:layout_marginBottom="8dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="ANTIRROBO INTELIGENTE"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+                                        android:textColor="#FFFFFF"
+                                        android:textAlignment="center" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• GPS tracking continuo"
+                                        android:textSize="8sp"
+                                        android:textColor="#FEF3C7"
+                                        android:textAlignment="center"
+                                        android:layout_marginTop="4dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Detección movimiento"
+                                        android:textSize="8sp"
+                                        android:textColor="#FEF3C7"
+                                        android:textAlignment="center" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Alarmas automáticas"
+                                        android:textSize="8sp"
+                                        android:textColor="#FEF3C7"
+                                        android:textAlignment="center" />
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        app:cardCornerRadius="12dp"
+                                        app:cardElevation="6dp"
+                                        app:cardBackgroundColor="#FF1744">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="📍 RASTREANDO"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold"
+                                            android:textColor="#FFFFFF"
+                                            android:padding="6dp" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="140dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                app:cardCornerRadius="20dp"
+                                app:cardElevation="15dp"
+                                app:cardBackgroundColor="linear-gradient(135deg, #8b5cf6, #7c3aed)"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    android:padding="16dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="🏥"
+                                        android:textSize="40sp"
+                                        android:layout_marginBottom="8dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="PROTECCIÓN MÉDICA"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+                                        android:textColor="#FFFFFF"
+                                        android:textAlignment="center" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Análisis con Claude"
+                                        android:textSize="8sp"
+                                        android:textColor="#EDE9FE"
+                                        android:textAlignment="center"
+                                        android:layout_marginTop="4dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Encriptación médica"
+                                        android:textSize="8sp"
+                                        android:textColor="#EDE9FE"
+                                        android:textAlignment="center" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Respaldo automático"
+                                        android:textSize="8sp"
+                                        android:textColor="#EDE9FE"
+                                        android:textAlignment="center" />
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        app:cardCornerRadius="12dp"
+                                        app:cardElevation="6dp"
+                                        app:cardBackgroundColor="#00BCD4">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="🧠 ANALIZANDO"
+                                            android:textSize="8sp"
+                                            android:textStyle="bold"
+                                            android:textColor="#FFFFFF"
+                                            android:padding="6dp" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- SISTEMA ANTIRROBO INTEGRADO -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="25dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardCornerRadius="28dp"
+                            app:cardElevation="12dp"
+                            app:cardBackgroundColor="linear-gradient(135deg, #f59e0b, #d97706)">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="🔒"
+                                android:textSize="28sp" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔒 SISTEMA ANTIRROBO GPS"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#2D3748"
+                                android:fontFamily="sans-serif-medium" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tracking 24/7 • Alertas inteligentes • Recuperación automática"
+                                android:textSize="12sp"
+                                android:textColor="#718096"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="4dp"
+                            app:cardBackgroundColor="#F59E0B"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <TextView
+                                android:id="@+id/btn_track_device"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="📍 VER MAPA"
+                                android:textColor="#141414"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <!-- MAPA SIMULADO Y UBICACIÓN -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="12dp"
+                        app:cardBackgroundColor="linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🗺️"
+                                android:textSize="48sp"
+                                android:layout_marginBottom="12dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="UBICACIÓN ACTUAL SEGURA"
+                                android:textAlignment="center"
+                                android:textColor="#0D0C0C"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="📍 Av. Principal 123, Ciudad Segura"
+                                android:textSize="12sp"
+                                android:textColor="#F8F9FA"
+                                android:textAlignment="center"
+                                android:layout_marginTop="8dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="12dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp"
+                                    app:cardBackgroundColor="#00FF41">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="✓ ZONA SEGURA"
+                                        android:textSize="8sp"
+                                        android:textStyle="bold"
+                                        android:textColor="#000000"
+                                        android:padding="6dp" />
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp"
+                                    app:cardBackgroundColor="#4FACFE">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="6dp"
+                                        android:text="🕐 15:42 PM"
+                                        android:textColor="#090909"
+                                        android:textSize="8sp"
+                                        android:textStyle="bold" />
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- CONTROLES DE EMERGENCIA ANTIRROBO -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#FFF5F5"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🚨"
+                                    android:textSize="28sp"
+                                    android:layout_marginBottom="6dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ACTIVAR ALARMA"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#DC2626"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sirena + Foto"
+                                    android:textSize="8sp"
+                                    android:textColor="#7F1D1D"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="4dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#FFFBEB"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🔒"
+                                    android:textSize="28sp"
+                                    android:layout_marginBottom="6dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="BLOQUEO TOTAL"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#F59E0B"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Acceso denegado"
+                                    android:textSize="8sp"
+                                    android:textColor="#92400E"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="8dp"
+                            app:cardBackgroundColor="#F0FDF4"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="📞"
+                                    android:textSize="28sp"
+                                    android:layout_marginBottom="6dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="CONTACTAR"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#16A34A"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Familiares/911"
+                                    android:textSize="8sp"
+                                    android:textColor="#15803D"
+                                    android:textAlignment="center"
+                                    android:layout_marginTop="4dp" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- NAVEGACIÓN INFERIOR ÉPICA -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="25dp"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:id="@+id/nav_protection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🛡️"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PROTECCIÓN"
+                    android:textColor="#101010"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_antitheft"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔒"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ANTIRROBO"
+                    android:textColor="#121212"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_medical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏥"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MÉDICO"
+                    android:textColor="#0D0C0C"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_optimization"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OPTIMIZAR"
+                    android:textColor="#1A1919"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_threats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🚨"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AMENAZAS"
+                    android:textColor="#141313"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nav_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap<TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚙️"
+                android:textSize="20sp"
+                android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AJUSTES"
+                    android:textColor="#0F0E0E"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- FAB MEGA ÉPICO PARA ESCANEO RÁPIDO -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="30dp"
+        app:cardBackgroundColor="linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #F7DC6F, #BB8FCE, #85C1E9)"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍"
+                android:textSize="28sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SCAN"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="4" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
+    <!--
+    ===============================================
+    🎯 CARACTERÍSTICAS ÉPICAS DEL DISEÑO USUARIO:
+    ===============================================
+
+    🛡️ PROTECCIÓN INTEGRAL VISUAL:
+    - Header con gradientes dinámicos múltiples
+    - Logo multicapa (🛡️🤖🔒🏥) representando todas las protecciones
+    - Badges duales: "PROTEGIDO" y "SEGURO" con animaciones
+    - Métricas en tiempo real: amenazas, ubicación, docs médicos, apps
+
+    ⚡ ESCUDO CENTRAL INTERACTIVO:
+    - Círculo de 280dp con 3 anillos concéntricos
+    - Verde exterior: GPS/Antirrobo
+    - Naranja medio: Antivirus/Firewall
+    - Azul interior: Datos médicos
+    - Centro blanco con porcentaje 98.7% de seguridad
+    - Leyenda visual para entender cada capa
+
+    🔥 GRID PROTECCIÓN 2x3 EXPANDIDO:
+    - Fila 1: Antivirus IA + Firewall Adaptivo
+    - Fila 2: Anti-Malware + Protección Web
+    - Fila 3: Antirrobo Inteligente (GPS) + Protección Médica (Claude)
+    - Cada card con gradientes únicos y estados en tiempo real
+
+    🗺️ SISTEMA ANTIRROBO GPS COMPLETO:
+    - Mapa simulado con ubicación actual
+    - Zona segura confirmada visualmente
+    - Controles de emergencia: Alarma, Bloqueo, Contactar
+    - Tracking 24/7 con alertas automáticas
+
+    🚨 EMERGENCIA MÉDICA INTEGRADA:
+    - Botón SOS médico prominente en header
+    - Protección de 23 documentos médicos
+    - Análisis seguro con Claude
+    - Respaldo automático encriptado
+
+    📱 NAVEGACIÓN BOTTOM ÉPICA:
+    - 6 secciones: Protección, Antirrobo, Médico, Optimizar, Amenazas, Ajustes
+    - Gradientes consistentes con el header
+    - Iconos emoji para familiaridad inmediata
+
+    🎨 ELEMENTOS VISUALES SUPERIORES:
+    - Gradientes de 5-6 colores en cada elemento principal
+    - Elevaciones hasta 40dp para máximo impacto 3D
+    - Cards con esquinas redondeadas 20-40dp
+    - Sombras y depth consistentes
+    - Badges de estado con colores significativos
+
+    ⚙️ FAB MEGA SCANNING:
+    - Floating Action Button de 80dp
+    - Gradiente arcoíris épico
+    - Función de escaneo rápido total
+    - Posición estratégica para acceso inmediato
+
+    🎯 EXPERIENCIA USUARIO PREMIUM:
+    - Estados visuales claros (Verde/Amarillo/Rojo/Azul)
+    - Información crítica siempre visible
+    - Acceso rápido a emergencias médicas y antirrobo
+    - Integración perfecta entre todas las funciones
+    - Diseño que transmite confianza y seguridad total
+
+    💎 DIFERENCIADORES ÚNICOS:
+    - Primer antivirus con protección médica IA
+    - Sistema antirrobo GPS integrado nativamente
+    - Análisis médico seguro con Claude
+    - Protección multicapa visualmente representada
+    - Emergencias médicas + antirrobo unificadas
+    ===============================================
+    -->

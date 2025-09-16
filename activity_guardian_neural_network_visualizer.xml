@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/neural_awakening_gradient"
+    tools:context=".activities.GuardianNeuralNetworkVisualizerActivity">
+
+    <!-- Header con título y controles -->
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/guardian_header_bg"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back_white"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Neural Network Visualizer"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/guardian_font_bold" />
+
+        <ImageView
+            android:id="@+id/btn_neural_settings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_neural_settings"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- Panel de control de visualización -->
+    <LinearLayout
+        android:id="@+id/control_panel"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/header_layout"
+        android:background="@drawable/neural_control_panel_bg"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Controles de red neuronal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Red Activa:"
+                android:textColor="#E0E0E0"
+                android:textSize="14sp"
+                android:layout_marginEnd="12dp" />
+
+            <Spinner
+                android:id="@+id/spinner_neural_network"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/neural_spinner_bg"
+                android:entries="@array/neural_networks_list" />
+
+            <ImageView
+                android:id="@+id/btn_neural_refresh"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_neural_refresh"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+        <!-- Controles de visualización -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Velocidad:"
+                android:textColor="#E0E0E0"
+                android:textSize="12sp"
+                android:layout_marginEnd="8dp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_animation_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/neural_seekbar"
+                android:thumb="@drawable/neural_seekbar_thumb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detalle:"
+                android:textColor="#E0E0E0"
+                android:textSize="12sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_detail_level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="75"
+                android:progressDrawable="@drawable/neural_seekbar"
+                android:thumb="@drawable/neural_seekbar_thumb" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Área principal de visualización 3D -->
+    <FrameLayout
+        android:id="@+id/neural_visualization_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/control_panel"
+        android:layout_above="@id/neural_stats_panel"
+        android:background="@drawable/neural_3d_bg">
+
+        <!-- Vista 3D de la red neuronal -->
+        <com.guardianai.custom.Neural3DVisualizationView
+            android:id="@+id/neural_3d_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Overlay de información -->
+        <LinearLayout
+            android:id="@+id/neural_info_overlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="16dp"
+            android:background="@drawable/neural_info_overlay_bg"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_neural_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado: Activo"
+                android:textColor="#00FF88"
+                android:textSize="12sp"
+                android:fontFamily="@font/guardian_font_mono" />
+
+            <TextView
+                android:id="@+id/tv_neural_accuracy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precisión: 97.3%"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:fontFamily="@font/guardian_font_mono"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_neural_processing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Procesando: 1,247 ops/s"
+                android:textColor="#FFD700"
+                android:textSize="12sp"
+                android:fontFamily="@font/guardian_font_mono"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Controles de cámara 3D -->
+        <LinearLayout
+            android:id="@+id/camera_controls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_camera_reset"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_camera_reset"
+                android:background="@drawable/neural_button_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/btn_camera_zoom_in"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_zoom_in"
+                android:background="@drawable/neural_button_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/btn_camera_zoom_out"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_zoom_out"
+                android:background="@drawable/neural_button_bg"
+                android:padding="12dp" />
+
+        </LinearLayout>
+
+        <!-- Indicador de carga neuronal -->
+        <ProgressBar
+            android:id="@+id/neural_loading"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/neural_loading_animation"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- Panel de estadísticas neuronales -->
+    <LinearLayout
+        android:id="@+id/neural_stats_panel"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/neural_stats_panel_bg"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Título del panel -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estadísticas de Red Neuronal"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Grid de métricas -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2">
+
+            <!-- Neuronas Activas -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_active_neurons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2,847"
+                    android:textColor="#00FF88"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/guardian_font_mono" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neuronas Activas"
+                    android:textColor="#B0B0B0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Conexiones -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_connections"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15,923"
+                    android:textColor="#FFD700"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/guardian_font_mono" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conexiones"
+                    android:textColor="#B0B0B0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Eficiencia -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_efficiency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="94.7%"
+                    android:textColor="#FF6B6B"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/guardian_font_mono" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eficiencia"
+                    android:textColor="#B0B0B0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Latencia -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_latency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2.3ms"
+                    android:textColor="#9C27B0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/guardian_font_mono" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latencia"
+                    android:textColor="#B0B0B0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Throughput -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_throughput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="847 TPS"
+                    android:textColor="#00BCD4"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/guardian_font_mono" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Throughput"
+                    android:textColor="#B0B0B0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <!-- Memoria -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tv_memory_usage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.2GB"
+                    android:textColor="#FF9800"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/guardian_font_mono" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Memoria"
+                    android:textColor="#B0B0B0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+    </LinearLayout>
+
+    <!-- Botón flotante de acciones -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_neural_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/neural_stats_panel"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_neural_brain"
+        app:backgroundTint="#6200EA"
+        app:tint="#FFFFFF"
+        app:elevation="8dp" />
+
+</RelativeLayout>
+

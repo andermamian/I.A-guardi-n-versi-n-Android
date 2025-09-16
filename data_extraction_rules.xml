@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Excluir datos sensibles del backup en la nube -->
+        <exclude domain="sharedpref" path="guardian_security_prefs.xml" />
+        <exclude domain="sharedpref" path="guardian_biometric_prefs.xml" />
+        <exclude domain="sharedpref" path="guardian_encryption_keys.xml" />
+        <exclude domain="database" path="guardian_security.db" />
+        <exclude domain="database" path="guardian_conversations.db" />
+        <exclude domain="file" path="ai_models/" />
+        <exclude domain="file" path="security_logs/" />
+        <exclude domain="file" path="biometric_data/" />
+        <exclude domain="file" path="encryption_keys/" />
+    </cloud-backup>
+    
+    <device-transfer>
+        <!-- Excluir datos sensibles de la transferencia de dispositivo -->
+        <exclude domain="sharedpref" path="guardian_security_prefs.xml" />
+        <exclude domain="sharedpref" path="guardian_biometric_prefs.xml" />
+        <exclude domain="sharedpref" path="guardian_encryption_keys.xml" />
+        <exclude domain="database" path="guardian_security.db" />
+        <exclude domain="file" path="biometric_data/" />
+        <exclude domain="file" path="encryption_keys/" />
+    </device-transfer>
+</data-extraction-rules>
+

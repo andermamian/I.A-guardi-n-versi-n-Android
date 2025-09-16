@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A1A"
+    tools:context=".activities.GuardianThreatIntelligenceCenterActivity">
+
+    <!-- Header del centro de inteligencia -->
+    <LinearLayout
+        android:id="@+id/threat_intel_header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:background="#2C2C2C"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="←"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="#3C3C3C"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/volver" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/threat_intelligence"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/center"
+                android:textColor="#FF4444"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_threat_alerts"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="🚨"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:background="#3C3C3C"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/alertas_amenazas" />
+
+            <TextView
+                android:id="@+id/btn_intel_settings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="⚙"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:background="#3C3C3C"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/configuracion_inteligencia" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Panel de estado global de amenazas -->
+    <LinearLayout
+        android:id="@+id/global_threat_status"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/threat_intel_header"
+        android:background="#262626"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Nivel de amenaza global -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/global_threat_level"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:text="⚠"
+                android:textSize="40sp"
+                android:textColor="#FF6B35"
+                android:gravity="center"
+                android:background="#3C3C3C"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/tv_threat_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/elevado"
+                android:textColor="#FF6B35"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Estadísticas de amenazas -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingStart="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="●"
+                    android:textColor="#FF4444"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:contentDescription="@string/amenazas_activas" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amenazas_activas_label"
+                    android:textColor="#E0E0E0"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_active_threats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="247"
+                    android:textColor="#FF4444"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="●"
+                    android:textColor="#00FF88"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:contentDescription="@string/amenazas_bloqueadas" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bloqueadas_24h_label"
+                    android:textColor="#E0E0E0"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_blocked_threats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1,847"
+                    android:textColor="#00FF88"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:text="●"
+                    android:textColor="#FFD700"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:contentDescription="@string/actualizaciones_inteligencia" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intel_updates_label"
+                    android:textColor="#E0E0E0"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_intel_updates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="156"
+                    android:textColor="#FFD700"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Tabs de inteligencia -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/intel_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/global_threat_status"
+        android:background="#2C2C2C"
+        app:tabTextColor="#B0B0B0"
+        app:tabSelectedTextColor="#FF4444"
+        app:tabIndicatorColor="#FF4444"
+        app:tabMode="scrollable">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amenazas" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/iocs" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ttps" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feeds" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/analisis" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Área principal de contenido -->
+    <FrameLayout
+        android:id="@+id/intel_content_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/intel_tabs"
+        android:layout_above="@id/threat_action_panel"
+        android:background="#1E1E1E">
+
+        <!-- ViewPager para contenido de tabs -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/intel_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Overlay de mapa de amenazas -->
+        <FrameLayout
+            android:id="@+id/threat_map_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1A1A1A"
+            android:visibility="gone">
+
+            <!-- Mapa simulado -->
+            <TextView
+                android:id="@+id/threat_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="🗺️ MAPA DE AMENAZAS\n\n🔴 Amenaza Crítica - Asia\n🟡 Amenaza Media - Europa\n🟢 Sistema Seguro - América\n\nActualizando en tiempo real..."
+                android:textColor="#E0E0E0"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:background="#1E1E1E" />
+
+            <!-- Controles del mapa -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:background="#3C3C3C"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/btn_map_layers"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="🔗"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#2C2C2C"
+                    android:layout_marginBottom="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/capas_mapa" />
+
+                <TextView
+                    android:id="@+id/btn_map_filter"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="🔍"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#2C2C2C"
+                    android:layout_marginBottom="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/filtros_mapa" />
+
+                <TextView
+                    android:id="@+id/btn_map_refresh"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="🔄"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#2C2C2C"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/actualizar_mapa" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Panel de alertas emergentes -->
+        <LinearLayout
+            android:id="@+id/emergency_alerts_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#CC000000"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="🚨"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:contentDescription="@string/alerta_critica" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/alerta_critica_nueva_campana"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp" />
+
+                <TextView
+                    android:id="@+id/btn_close_alert"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="✕"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#4C4C4C"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/cerrar_alerta" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/descripcion_apt29_evasion"
+                android:textColor="#E0E0E0"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="36dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Panel de acciones de inteligencia -->
+    <LinearLayout
+        android:id="@+id/threat_action_panel"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2C2C2C"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="12dp"
+        android:elevation="4dp">
+
+        <!-- Botón de escaneo de amenazas -->
+        <LinearLayout
+            android:id="@+id/btn_threat_scan"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#3C3C3C"
+            android:layout_marginEnd="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="🔍"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:contentDescription="@string/escanear_amenazas" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/escanear"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Botón de análisis -->
+        <LinearLayout
+            android:id="@+id/btn_threat_analysis"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#3C3C3C"
+            android:layout_marginHorizontal="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="📊"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:contentDescription="@string/analizar_amenazas" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/analizar"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Botón de feeds -->
+        <LinearLayout
+            android:id="@+id/btn_intel_feeds"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#3C3C3C"
+            android:layout_marginHorizontal="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="📡"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:contentDescription="@string/feeds_inteligencia" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feeds"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Botón de mapa -->
+        <LinearLayout
+            android:id="@+id/btn_threat_map"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#3C3C3C"
+            android:layout_marginHorizontal="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="🗺️"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:contentDescription="@string/mapa_amenazas" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mapa"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Botón de respuesta -->
+        <LinearLayout
+            android:id="@+id/btn_threat_response"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#3C3C3C"
+            android:layout_marginStart="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="🛡️"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:contentDescription="@string/responder_amenaza" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/responder"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Indicador de actividad de inteligencia -->
+    <LinearLayout
+        android:id="@+id/intel_activity_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/global_threat_status"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#3C3C3C"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/intel_activity_view"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="⚡"
+            android:textSize="20sp"
+            android:textColor="#FF4444"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/tv_intel_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activo"
+            android:textColor="#FF4444"
+            android:textSize="9sp"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+    <!-- Botón flotante de acciones rápidas -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_quick_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/threat_action_panel"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@android:drawable/ic_menu_preferences"
+        android:contentDescription="@string/acciones_rapidas"
+        app:backgroundTint="#FF4444"
+        app:tint="#FFFFFF"
+        app:elevation="8dp" />
+
+    <!-- ViewPager2 Adapter Implementation (hidden by default) -->
+    <FrameLayout
+        android:id="@+id/viewpager_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/intel_tabs"
+        android:layout_above="@id/threat_action_panel"
+        android:background="#1E1E1E">
+
+        <!-- Tab content fragments will be managed by the adapter -->
+        <TextView
+            android:id="@+id/tab_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Contenido cargado por ViewPager2 Adapter"
+            android:textColor="#808080"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <!-- Contenido de ejemplo para tabs (oculto por defecto) -->
+    <ScrollView
+        android:id="@+id/example_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intel_tabs"
+        android:layout_above="@id/threat_action_panel"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        android:background="#1E1E1E"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 AMENAZAS DETECTADAS"
+                android:textColor="#FF4444"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:background="#2C2C2C"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="🔴"
+                    android:textSize="20sp"
+                    android:gravity="center" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Malware APT-29"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IP: 192.168.1.100 | Criticidad: Alta"
+                        android:textColor="#B0B0B0"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="BLOQUEAR"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#FF4444"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:background="#2C2C2C"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="🟡"
+                    android:textSize="20sp"
+                    android:gravity="center" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Intento de Phishing"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Domain: fake-bank.com | Criticidad: Media"
+                        android:textColor="#B0B0B0"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="REVISAR"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#FFD700"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:background="#2C2C2C"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="🟢"
+                    android:textSize="20sp"
+                    android:gravity="center" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tráfico Normal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Red: 10.0.0.0/8 | Estado: Seguro"
+                        android:textColor="#B0B0B0"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="OK"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#00FF88" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📊 ESTADÍSTICAS DE RENDIMIENTO"
+                android:textColor="#FFD700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Amenazas bloqueadas hoy: 1,847\n• Tiempo promedio de respuesta: 23s\n• Efectividad del sistema: 99.7%\n• Última actualización: Hace 2 minutos"
+                android:textColor="#E0E0E0"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,208 @@
+<resources>
+    <string name="app_name">Guardian IA</string>
+    
+    <!-- Actividades -->
+    <string name="main_activity_title">Guardian IA</string>
+    <string name="guardian_main_interface_title">Interfaz Principal</string>
+    <string name="protection_center_title">Centro de Protección</string>
+    <string name="communication_hub_title">Hub de Comunicación</string>
+    <string name="emotional_bonding_title">Vinculación Emocional</string>
+    <string name="personality_designer_title">Diseñador de Personalidad</string>
+    <string name="music_creator_title">Creador de Música</string>
+    <string name="ai_communication_title">Comunicación IA</string>
+    <string name="admin_dashboard_title">Dashboard Admin</string>
+    <string name="anti_theft_title">Sistema Anti-Robo</string>
+    <string name="configuration_center_title">Centro de Configuración</string>
+    <string name="real_time_monitoring_title">Monitoreo en Tiempo Real</string>
+    
+    <!-- Botones -->
+    <string name="btn_start">Iniciar</string>
+    <string name="btn_stop">Detener</string>
+    <string name="btn_configure">Configurar</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_ok">Aceptar</string>
+    <string name="btn_yes">Sí</string>
+    <string name="btn_no">No</string>
+    <string name="btn_continue">Continuar</string>
+    <string name="btn_back">Atrás</string>
+    <string name="btn_next">Siguiente</string>
+    <string name="btn_finish">Finalizar</string>
+    <string name="btn_activate">Activar</string>
+    <string name="btn_deactivate">Desactivar</string>
+    <string name="btn_enable">Habilitar</string>
+    <string name="btn_disable">Deshabilitar</string>
+    <string name="btn_refresh">Actualizar</string>
+    <string name="btn_export">Exportar</string>
+    <string name="btn_import">Importar</string>
+    <string name="btn_backup">Respaldar</string>
+    <string name="btn_restore">Restaurar</string>
+    <string name="btn_reset">Restablecer</string>
+    <string name="btn_clear">Limpiar</string>
+    <string name="btn_delete">Eliminar</string>
+    <string name="btn_edit">Editar</string>
+    <string name="btn_view">Ver</string>
+    <string name="btn_share">Compartir</string>
+    <string name="btn_send">Enviar</string>
+    <string name="btn_receive">Recibir</string>
+    <string name="btn_connect">Conectar</string>
+    <string name="btn_disconnect">Desconectar</string>
+    <string name="btn_scan">Escanear</string>
+    <string name="btn_analyze">Analizar</string>
+    <string name="btn_monitor">Monitorear</string>
+    <string name="btn_protect">Proteger</string>
+    <string name="btn_secure">Asegurar</string>
+    <string name="btn_encrypt">Encriptar</string>
+    <string name="btn_decrypt">Desencriptar</string>
+    <string name="btn_authenticate">Autenticar</string>
+    <string name="btn_verify">Verificar</string>
+    <string name="btn_validate">Validar</string>
+    <string name="btn_test">Probar</string>
+    <string name="btn_debug">Depurar</string>
+    <string name="btn_optimize">Optimizar</string>
+    <string name="btn_upgrade">Actualizar</string>
+    <string name="btn_download">Descargar</string>
+    <string name="btn_upload">Subir</string>
+    <string name="btn_sync">Sincronizar</string>
+    <string name="btn_backup_now">Respaldar Ahora</string>
+    <string name="btn_restore_now">Restaurar Ahora</string>
+    
+    <!-- Mensajes -->
+    <string name="msg_welcome">Bienvenido a Guardian IA</string>
+    <string name="msg_system_active">Sistema Guardian Activo</string>
+    <string name="msg_system_inactive">Sistema Guardian Inactivo</string>
+    <string name="msg_loading">Cargando...</string>
+    <string name="msg_processing">Procesando...</string>
+    <string name="msg_saving">Guardando...</string>
+    <string name="msg_success">Operación exitosa</string>
+    <string name="msg_error">Error en la operación</string>
+    <string name="msg_warning">Advertencia</string>
+    <string name="msg_info">Información</string>
+    <string name="msg_confirm">¿Está seguro?</string>
+    <string name="msg_no_data">No hay datos disponibles</string>
+    <string name="msg_connection_error">Error de conexión</string>
+    <string name="msg_permission_required">Permiso requerido</string>
+    <string name="msg_feature_not_available">Función no disponible</string>
+    <string name="msg_update_available">Actualización disponible</string>
+    <string name="msg_backup_complete">Respaldo completado</string>
+    <string name="msg_restore_complete">Restauración completada</string>
+    <string name="msg_sync_complete">Sincronización completada</string>
+    <string name="msg_scan_complete">Escaneo completado</string>
+    <string name="msg_analysis_complete">Análisis completado</string>
+    <string name="msg_optimization_complete">Optimización completada</string>
+    <string name="msg_encryption_complete">Encriptación completada</string>
+    <string name="msg_authentication_success">Autenticación exitosa</string>
+    <string name="msg_authentication_failed">Autenticación fallida</string>
+    <string name="msg_threat_detected">Amenaza detectada</string>
+    <string name="msg_system_secure">Sistema seguro</string>
+    <string name="msg_monitoring_active">Monitoreo activo</string>
+    <string name="msg_ai_ready">IA lista</string>
+    <string name="msg_personality_updated">Personalidad actualizada</string>
+    <string name="msg_configuration_saved">Configuración guardada</string>
+    
+    <!-- Estados -->
+    <string name="status_online">En línea</string>
+    <string name="status_offline">Fuera de línea</string>
+    <string name="status_connected">Conectado</string>
+    <string name="status_disconnected">Desconectado</string>
+    <string name="status_active">Activo</string>
+    <string name="status_inactive">Inactivo</string>
+    <string name="status_enabled">Habilitado</string>
+    <string name="status_disabled">Deshabilitado</string>
+    <string name="status_running">Ejecutándose</string>
+    <string name="status_stopped">Detenido</string>
+    <string name="status_paused">Pausado</string>
+    <string name="status_loading">Cargando</string>
+    <string name="status_ready">Listo</string>
+    <string name="status_error">Error</string>
+    <string name="status_warning">Advertencia</string>
+    <string name="status_success">Éxito</string>
+    <string name="status_pending">Pendiente</string>
+    <string name="status_completed">Completado</string>
+    <string name="status_failed">Fallido</string>
+    <string name="status_cancelled">Cancelado</string>
+    <string name="status_timeout">Tiempo agotado</string>
+    <string name="status_unknown">Desconocido</string>
+    
+    <!-- Configuraciones -->
+    <string name="config_general">General</string>
+    <string name="config_security">Seguridad</string>
+    <string name="config_privacy">Privacidad</string>
+    <string name="config_notifications">Notificaciones</string>
+    <string name="config_appearance">Apariencia</string>
+    <string name="config_language">Idioma</string>
+    <string name="config_advanced">Avanzado</string>
+    <string name="config_about">Acerca de</string>
+    <string name="config_help">Ayuda</string>
+    <string name="config_support">Soporte</string>
+    <string name="config_feedback">Comentarios</string>
+    <string name="config_rate">Calificar</string>
+    <string name="config_share">Compartir</string>
+    <string name="config_legal">Legal</string>
+    <string name="config_terms">Términos</string>
+    <string name="config_privacy_policy">Política de Privacidad</string>
+    <string name="config_licenses">Licencias</string>
+    <string name="config_version">Versión</string>
+    <string name="config_build">Build</string>
+    <string name="config_debug">Debug</string>
+    
+    <!-- Personalidad IA -->
+    <string name="personality_empathetic">Empático</string>
+    <string name="personality_protective">Protector</string>
+    <string name="personality_creative">Creativo</string>
+    <string name="personality_analytical">Analítico</string>
+    <string name="personality_friendly">Amigable</string>
+    <string name="personality_professional">Profesional</string>
+    <string name="personality_playful">Juguetón</string>
+    <string name="personality_serious">Serio</string>
+    <string name="personality_optimistic">Optimista</string>
+    <string name="personality_realistic">Realista</string>
+    
+    <!-- Seguridad -->
+    <string name="security_level_low">Bajo</string>
+    <string name="security_level_medium">Medio</string>
+    <string name="security_level_high">Alto</string>
+    <string name="security_level_critical">Crítico</string>
+    <string name="security_threat_none">Sin amenazas</string>
+    <string name="security_threat_low">Amenaza baja</string>
+    <string name="security_threat_medium">Amenaza media</string>
+    <string name="security_threat_high">Amenaza alta</string>
+    <string name="security_threat_critical">Amenaza crítica</string>
+    
+    <!-- Monitoreo -->
+    <string name="monitoring_cpu">CPU</string>
+    <string name="monitoring_memory">Memoria</string>
+    <string name="monitoring_disk">Disco</string>
+    <string name="monitoring_network">Red</string>
+    <string name="monitoring_battery">Batería</string>
+    <string name="monitoring_temperature">Temperatura</string>
+    <string name="monitoring_performance">Rendimiento</string>
+    <string name="monitoring_health">Salud</string>
+    <string name="monitoring_uptime">Tiempo activo</string>
+    <string name="monitoring_connections">Conexiones</string>
+    
+    <!-- Comunicación -->
+    <string name="comm_message">Mensaje</string>
+    <string name="comm_voice">Voz</string>
+    <string name="comm_video">Video</string>
+    <string name="comm_text">Texto</string>
+    <string name="comm_image">Imagen</string>
+    <string name="comm_file">Archivo</string>
+    <string name="comm_contact">Contacto</string>
+    <string name="comm_group">Grupo</string>
+    <string name="comm_channel">Canal</string>
+    <string name="comm_broadcast">Difusión</string>
+    
+    <!-- Música y Audio -->
+    <string name="music_therapy">Musicoterapia</string>
+    <string name="music_relaxation">Relajación</string>
+    <string name="music_meditation">Meditación</string>
+    <string name="music_focus">Concentración</string>
+    <string name="music_sleep">Sueño</string>
+    <string name="music_energy">Energía</string>
+    <string name="music_healing">Sanación</string>
+    <string name="music_binaural">Ondas Binaurales</string>
+    <string name="music_nature">Sonidos de la Naturaleza</string>
+    <string name="music_ambient">Ambiente</string>
+</resources>
+

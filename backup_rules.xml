@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Excluir datos sensibles del backup -->
+    <exclude domain="sharedpref" path="guardian_security_prefs.xml" />
+    <exclude domain="sharedpref" path="guardian_biometric_prefs.xml" />
+    <exclude domain="sharedpref" path="guardian_encryption_keys.xml" />
+    <exclude domain="database" path="guardian_security.db" />
+    <exclude domain="database" path="guardian_conversations.db" />
+    <exclude domain="file" path="ai_models/" />
+    <exclude domain="file" path="security_logs/" />
+    <exclude domain="file" path="biometric_data/" />
+    <exclude domain="file" path="encryption_keys/" />
+</full-backup-content>
+

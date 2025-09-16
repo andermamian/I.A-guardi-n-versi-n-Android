@@ -1,37 +1,135 @@
-// Archivo de build de nivel superior donde puedes agregar opciones de configuración comunes a todos los sub-proyectos/módulos.
-buildscript {
-    // Variables de extensión para versiones
-    ext.kotlin_version = "1.8.10"
-    ext.compose_version = "1.4.3"
-    
-    // Repositorios para las dependencias de buildscript
-    repositories {
-        google()
-        mavenCentral()
-    }
-    
-    // Dependencias del classpath para el build
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.9.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.google.dagger:hilt-android-gradle-plugin:2.44"
-        
-        // NOTA: No coloques las dependencias de tu aplicación aquí; pertenecen
-        // a los archivos build.gradle de módulos individuales
-    }
-}
-
-// Plugins aplicados a nivel raíz
 plugins {
-    id 'com.android.application' version '8.9.1' apply false
-    id 'com.android.library' version '8.9.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
-// Eliminamos el bloque allprojects - los repositorios ahora se gestionan en settings.gradle
+android {
+    namespace 'com.guardianai'
+    compileSdk 34
 
-// Tarea para limpiar el directorio de build
-task clean(type: Delete) {
-    delete rootProject.buildDir
+    defaultConfig {
+        applicationId "com.guardianai"
+        minSdk 26
+        targetSdk 34
+        versionCode 2
+        versionName "3.1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        // Configuración para membresías y funcionalidades IA
+        buildConfigField "String", "MEMBERSHIP_API_URL", '"https://api.guardianai.com/membership/"'
+        buildConfigField "String", "VPN_AI_API_URL", '"https://api.guardianai.com/vpn-ai/"'
+        buildConfigField "String", "AI_SERVICES_API_URL", '"https://api.guardianai.com/ai-services/"'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "AI_MODEL_VERSION", '"v3.0"'
+            buildConfigField "boolean", "DEBUG_MODE", "false"
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+
+            buildConfigField "String", "AI_MODEL_VERSION", '"v3.0-debug"'
+            buildConfigField "boolean", "DEBUG_MODE", "true"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose true
+        viewBinding true
+        dataBinding true
+        buildConfig = true  // Esto soluciona el warning deprecation
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.8'
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
+dependencies {
+    // Core Android - Versiones actualizadas
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+
+    // UI - Versiones actualizadas
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Compose BOM - Versión más reciente
+    implementation platform('androidx.compose:compose-bom:2024.02.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+
+    // Navigation - Versión actualizada
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.6'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.6'
+
+    // ViewModel - Versiones actualizadas
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+
+    // Coroutines - Versión actualizada
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+
+    // Networking - Versiones actualizadas
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+
+    // Database - Room versión actualizada
+    implementation 'androidx.room:room-runtime:2.6.1'
+    implementation 'androidx.room:room-ktx:2.6.1'
+    kapt 'androidx.room:room-compiler:2.6.1'
+
+    // Security - Versión actualizada
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+
+    // Permissions
+    implementation 'com.karumi:dexter:6.2.3'
+
+    // Image Loading - Versión actualizada
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    kapt 'com.github.bumptech.glide:compiler:4.16.0'
+
+    // JSON - Versión actualizada
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Testing - Versiones actualizadas
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation platform('androidx.compose:compose-bom:2024.02.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+}

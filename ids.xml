@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_backup_request" type="id" />
+    <item name="btn_dispatch_1" type="id" />
+    <item name="btn_dispatch_2" type="id" />
+    <item name="btn_dispatch_3" type="id" />
+    <item name="btn_protocol_manual" type="id" />
+    <item name="btn_incident_report" type="id" />
+    <item name="btn_consultar_mas" type="id" />
+    <item name="btn_alerta_masiva" type="id" />
+    <item name="btn_evacuacion_inmediata" type="id" />
+    <item name="btn_lockdown_total" type="id" />
+    <item name="btn_aprobar_sugerencia" type="id" />
+    <item name="btn_rechazar_sugerencia" type="id" />
+    <item name="tv_compositions_count" type="id" />
+    <item name="tv_music_hours" type="id" />
+    <item name="tv_therapeutic_effectiveness" type="id" />
+    <item name="tv_frequency_value" type="id" />
+    <item name="tv_system_status" type="id" />
+    <item name="tv_active_users" type="id" />
+    <item name="tv_system_uptime" type="id" />
+    <item name="progress_system_health" type="id" />
+    <item name="progress_memory_usage" type="id" />
+    <item name="progress_cpu_usage" type="id" />
+    <item name="progress_security_score" type="id" />
+    <item name="btn_system_restart" type="id" />
+    <item name="btn_security_scan" type="id" />
+    <item name="btn_backup_system" type="id" />
+    <item name="btn_update_system" type="id" />
+    <item name="btn_generate_report" type="id" />
+    <item name="switch_maintenance_mode" type="id" />
+    <item name="switch_debug_mode" type="id" />
+    <item name="switch_auto_updates" type="id" />
+    <item name="switch_security_alerts" type="id" />
+    <item name="spinner_log_level" type="id" />
+    <item name="spinner_monitoring_interval" type="id" />
+    <item name="rv_system_logs" type="id" />
+    <item name="rv_active_connections" type="id" />
+    <item name="rv_security_events" type="id" />
+    <item name="rv_performance_metrics" type="id" />
+    <item name="chart_system_performance" type="id" />
+    <item name="tv_security_level" type="id" />
+</resources>

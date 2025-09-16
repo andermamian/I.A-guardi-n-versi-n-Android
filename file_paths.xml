@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Archivos internos de la aplicación -->
+    <files-path name="internal_files" path="." />
+    
+    <!-- Cache interno -->
+    <cache-path name="internal_cache" path="." />
+    
+    <!-- Archivos externos privados -->
+    <external-files-path name="external_files" path="." />
+    
+    <!-- Cache externo -->
+    <external-cache-path name="external_cache" path="." />
+    
+    <!-- Directorio específico para exportaciones de Guardian IA -->
+    <external-files-path name="guardian_exports" path="exports/" />
+    
+    <!-- Directorio para reportes de monitoreo -->
+    <external-files-path name="monitoring_reports" path="reports/" />
+    
+    <!-- Directorio para backups de configuración -->
+    <external-files-path name="config_backups" path="backups/" />
+    
+    <!-- Directorio para logs del sistema -->
+    <external-files-path name="system_logs" path="logs/" />
+    
+    <!-- Directorio para capturas de pantalla -->
+    <external-files-path name="screenshots" path="screenshots/" />
+    
+    <!-- Directorio para archivos de audio generados -->
+    <external-files-path name="generated_audio" path="audio/" />
+    
+    <!-- Directorio para datos de análisis -->
+    <external-files-path name="analytics_data" path="analytics/" />
+</paths>
+

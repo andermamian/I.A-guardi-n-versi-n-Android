@@ -1,0 +1,43 @@
+// Gestión de plugins - aquí defines dónde Gradle buscará los plugins
+pluginManagement {
+    repositories {
+        // Usar HTTP en lugar de HTTPS para evitar problemas SSL
+        maven { 
+            url 'https://dl.google.com/dl/android/maven2/'
+            allowInsecureProtocol = false
+        }
+        maven { 
+            url 'https://repo1.maven.org/maven2'
+            allowInsecureProtocol = false
+        }
+        gradlePluginPortal()
+    }
+}
+
+// Gestión de resolución de dependencias
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // Configuración de repositorios con manejo de SSL
+        maven { 
+            url 'https://dl.google.com/dl/android/maven2/'
+            allowInsecureProtocol = false
+        }
+        maven { 
+            url 'https://repo1.maven.org/maven2'
+            allowInsecureProtocol = false
+        }
+        maven { 
+            url 'https://jitpack.io' 
+            allowInsecureProtocol = false
+        }
+        
+        // Repositorios alternativos en caso de problemas
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+    }
+}
+
+// Nombre del proyecto raíz y módulos incluidos
+rootProject.name = "Guardian IA"
+include ':app'

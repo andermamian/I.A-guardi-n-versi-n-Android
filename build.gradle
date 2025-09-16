@@ -1,0 +1,37 @@
+// Archivo de build de nivel superior donde puedes agregar opciones de configuración comunes a todos los sub-proyectos/módulos.
+buildscript {
+    // Variables de extensión para versiones
+    ext.kotlin_version = "1.8.10"
+    ext.compose_version = "1.4.3"
+    
+    // Repositorios para las dependencias de buildscript
+    repositories {
+        google()
+        mavenCentral()
+    }
+    
+    // Dependencias del classpath para el build
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.9.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.44"
+        
+        // NOTA: No coloques las dependencias de tu aplicación aquí; pertenecen
+        // a los archivos build.gradle de módulos individuales
+    }
+}
+
+// Plugins aplicados a nivel raíz
+plugins {
+    id 'com.android.application' version '8.9.1' apply false
+    id 'com.android.library' version '8.9.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+}
+
+// Eliminamos el bloque allprojects - los repositorios ahora se gestionan en settings.gradle
+
+// Tarea para limpiar el directorio de build
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+

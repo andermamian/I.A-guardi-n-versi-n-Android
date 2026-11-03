@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema oscuro fijo: la app de seguridad se usa a menudo de noche y con la pantalla al mínimo. -->
+    <style name="Theme.GuardianIA" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/acento</item>
+        <item name="colorOnPrimary">@color/acento_texto</item>
+        <item name="colorSecondary">@color/acento</item>
+        <item name="colorSurface">@color/tarjeta</item>
+        <item name="colorOnSurface">@color/texto</item>
+        <item name="android:colorBackground">@color/fondo</item>
+        <item name="android:statusBarColor">@color/fondo</item>
+        <item name="android:navigationBarColor">@color/tarjeta</item>
+        <item name="android:windowBackground">@color/fondo</item>
+        <item name="android:textColorPrimary">@color/texto</item>
+        <item name="android:textColorSecondary">@color/texto2</item>
+    </style>
+    <!-- Pantalla de alarma/bloqueo: sin animaciones, encima de todo. -->
+    <style name="Theme.GuardianIA.Alerta" parent="Theme.GuardianIA">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+</resources>

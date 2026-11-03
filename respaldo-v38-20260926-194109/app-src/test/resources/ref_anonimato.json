@@ -1,0 +1,743 @@
+{
+ "evaluar": [
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": false,
+    "dns_fuga": false,
+    "kill_switch": true,
+    "proveedor": "importado",
+    "nombre": "ProtonVPN CH-12",
+    "pais_salida": "CH"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 100,
+    "nivel": "alto",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Su IPv6 va por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "ok",
+      "texto": "Sus consultas de DNS van por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "ok",
+      "texto": "Si el túnel se cae, el tráfico se bloquea (kill switch)",
+      "peso": 10,
+      "puntos": 10.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "ok",
+      "texto": "CH no pertenece a las alianzas 5/9/14 Ojos",
+      "peso": 10,
+      "puntos": 10.0
+     },
+     {
+      "clave": "operador",
+      "estado": "ok",
+      "texto": "Proveedor con política de no registros auditada públicamente.",
+      "peso": 25,
+      "puntos": 25.0
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": false,
+    "dns_fuga": false,
+    "kill_switch": null,
+    "proveedor": "warp",
+    "nombre": null,
+    "pais_salida": "CO"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 77,
+    "nivel": "medio",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Su IPv6 va por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "ok",
+      "texto": "Sus consultas de DNS van por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "aviso",
+      "texto": "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "ok",
+      "texto": "CO no pertenece a las alianzas 5/9/14 Ojos",
+      "peso": 10,
+      "puntos": 10.0
+     },
+     {
+      "clave": "operador",
+      "estado": "aviso",
+      "texto": "Cloudflare WARP cifra su tráfico, pero Cloudflare conoce su IP real y la salida suele quedar en su mismo país: protege su privacidad en la red, no le hace anónimo.",
+      "peso": 25,
+      "puntos": 8.8
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+     "Cloudflare WARP cifra su tráfico, pero Cloudflare conoce su IP real y la salida suele quedar en su mismo país: protege su privacidad en la red, no le hace anónimo."
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": true,
+    "dns_fuga": true,
+    "kill_switch": null,
+    "proveedor": "importado",
+    "nombre": "otro",
+    "pais_salida": "US"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 46,
+    "nivel": "bajo",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "falla",
+      "texto": "Fuga de IPv6: su IPv6 real sale fuera del túnel",
+      "peso": 15,
+      "puntos": 0.0
+     },
+     {
+      "clave": "dns",
+      "estado": "falla",
+      "texto": "Posible fuga de DNS: sus consultas siguen yendo al mismo resolutor que sin VPN",
+      "peso": 15,
+      "puntos": 0.0
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "aviso",
+      "texto": "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "falla",
+      "texto": "US pertenece a los 5 Ojos: sus agencias comparten datos de vigilancia",
+      "peso": 10,
+      "puntos": 1.0
+     },
+     {
+      "clave": "operador",
+      "estado": "aviso",
+      "texto": "Proveedor importado: revise que tenga política de no registros auditada.",
+      "peso": 25,
+      "puntos": 17.5
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "Fuga de IPv6: su IPv6 real sale fuera del túnel",
+     "Posible fuga de DNS: sus consultas siguen yendo al mismo resolutor que sin VPN",
+     "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+     "US pertenece a los 5 Ojos: sus agencias comparten datos de vigilancia",
+     "Proveedor importado: revise que tenga política de no registros auditada."
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": false,
+    "ipv6_fuga": null,
+    "dns_fuga": null,
+    "kill_switch": null,
+    "proveedor": "servidor",
+    "nombre": "Bogotá",
+    "pais_salida": null
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 10,
+    "nivel": "bajo",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "falla",
+      "texto": "Su IP real sigue visible: el túnel no está funcionando",
+      "peso": 20,
+      "puntos": 0.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Sin fuga de IPv6 (su conexión no usa IPv6 o va por el túnel)",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "aviso",
+      "texto": "No se pudo comprobar el DNS",
+      "peso": 15,
+      "puntos": 7.5
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "aviso",
+      "texto": "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "aviso",
+      "texto": "País de salida desconocido",
+      "peso": 10,
+      "puntos": 5.0
+     },
+     {
+      "clave": "operador",
+      "estado": "aviso",
+      "texto": "Servidor propio: usted controla los registros, pero si lo contrató a su nombre, la IP de salida puede rastrearse hasta usted.",
+      "peso": 25,
+      "puntos": 15.0
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "Su IP real sigue visible: el túnel no está funcionando",
+     "No se pudo comprobar el DNS",
+     "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+     "País de salida desconocido",
+     "Servidor propio: usted controla los registros, pero si lo contrató a su nombre, la IP de salida puede rastrearse hasta usted."
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": null,
+    "dns_fuga": null,
+    "kill_switch": false,
+    "proveedor": "servidor",
+    "nombre": "Bogotá",
+    "pais_salida": "SE"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 68,
+    "nivel": "medio",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Sin fuga de IPv6 (su conexión no usa IPv6 o va por el túnel)",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "aviso",
+      "texto": "No se pudo comprobar el DNS",
+      "peso": 15,
+      "puntos": 7.5
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "falla",
+      "texto": "Si el túnel se cae, el tráfico saldría sin cifrar",
+      "peso": 10,
+      "puntos": 0.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "aviso",
+      "texto": "SE pertenece a los 14 Ojos (intercambio de inteligencia)",
+      "peso": 10,
+      "puntos": 5.0
+     },
+     {
+      "clave": "operador",
+      "estado": "aviso",
+      "texto": "Servidor propio: usted controla los registros, pero si lo contrató a su nombre, la IP de salida puede rastrearse hasta usted.",
+      "peso": 25,
+      "puntos": 15.0
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "No se pudo comprobar el DNS",
+     "Si el túnel se cae, el tráfico saldría sin cifrar",
+     "SE pertenece a los 14 Ojos (intercambio de inteligencia)",
+     "Servidor propio: usted controla los registros, pero si lo contrató a su nombre, la IP de salida puede rastrearse hasta usted."
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": false,
+    "dns_fuga": true,
+    "kill_switch": null,
+    "proveedor": "importado",
+    "nombre": "Mullvad",
+    "pais_salida": "FR"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 71,
+    "nivel": "medio",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Su IPv6 va por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "falla",
+      "texto": "Posible fuga de DNS: sus consultas siguen yendo al mismo resolutor que sin VPN",
+      "peso": 15,
+      "puntos": 0.0
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "aviso",
+      "texto": "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "aviso",
+      "texto": "FR pertenece a los 9 Ojos (intercambio de inteligencia)",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "operador",
+      "estado": "ok",
+      "texto": "Proveedor con política de no registros auditada públicamente.",
+      "peso": 25,
+      "puntos": 25.0
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "Posible fuga de DNS: sus consultas siguen yendo al mismo resolutor que sin VPN",
+     "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+     "FR pertenece a los 9 Ojos (intercambio de inteligencia)"
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": null,
+    "dns_fuga": false,
+    "kill_switch": null,
+    "proveedor": null,
+    "nombre": null,
+    "pais_salida": "PA"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 68,
+    "nivel": "medio",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Sin fuga de IPv6 (su conexión no usa IPv6 o va por el túnel)",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "ok",
+      "texto": "Sus consultas de DNS van por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "aviso",
+      "texto": "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "ok",
+      "texto": "PA no pertenece a las alianzas 5/9/14 Ojos",
+      "peso": 10,
+      "puntos": 10.0
+     },
+     {
+      "clave": "operador",
+      "estado": "falla",
+      "texto": "Sin túnel configurado.",
+      "peso": 25,
+      "puntos": 0.0
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+     "Sin túnel configurado."
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  },
+  {
+   "entrada": {
+    "ip_oculta": true,
+    "ipv6_fuga": null,
+    "dns_fuga": false,
+    "kill_switch": null,
+    "proveedor": "tor",
+    "nombre": "Tor",
+    "pais_salida": "DE"
+   },
+   "salida": {
+    "motor": "anonimato-1.0.0",
+    "puntaje": 88,
+    "nivel": "alto",
+    "revisiones": [
+     {
+      "clave": "ip",
+      "estado": "ok",
+      "texto": "Su IP real está oculta",
+      "peso": 20,
+      "puntos": 20.0
+     },
+     {
+      "clave": "ipv6",
+      "estado": "ok",
+      "texto": "Sin fuga de IPv6 (su conexión no usa IPv6 o va por el túnel)",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "dns",
+      "estado": "ok",
+      "texto": "Sus consultas de DNS van por el túnel",
+      "peso": 15,
+      "puntos": 15.0
+     },
+     {
+      "clave": "kill_switch",
+      "estado": "aviso",
+      "texto": "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+      "peso": 10,
+      "puntos": 3.0
+     },
+     {
+      "clave": "jurisdiccion",
+      "estado": "aviso",
+      "texto": "DE pertenece a los 14 Ojos (intercambio de inteligencia)",
+      "peso": 10,
+      "puntos": 5.0
+     },
+     {
+      "clave": "operador",
+      "estado": "ok",
+      "texto": "Tor: su tráfico pasa por 3 relevos y ninguno conoce a la vez quién es usted y qué visita.",
+      "peso": 25,
+      "puntos": 25.0
+     },
+     {
+      "clave": "registros",
+      "estado": "ok",
+      "texto": "GuardianIA no guarda su IP real ni el historial de la VPN",
+      "peso": 5,
+      "puntos": 5.0
+     }
+    ],
+    "consejos": [
+     "Active el bloqueo de tráfico sin VPN (kill switch) en los ajustes del sistema",
+     "DE pertenece a los 14 Ojos (intercambio de inteligencia)"
+    ],
+    "limites": [
+     "Si inicia sesión en Google, Facebook, su banco u otra cuenta, ese sitio sabe quién es, con o sin VPN.",
+     "El navegador puede identificarle por su «huella» (tamaño de pantalla, fuentes, extensiones). Use el modo privado y pocos complementos.",
+     "Algunos navegadores filtran la IP real por WebRTC: desactívelo o use Firefox con media.peerconnection.enabled=false.",
+     "Para anonimato fuerte (periodismo, activismo) use Tor Browser: una VPN confía en un solo operador; Tor reparte la confianza entre varios."
+    ]
+   }
+  }
+ ],
+ "endurecer": [
+  {
+   "interfaz": {
+    "Address": "10.2.0.2/32"
+   },
+   "peer": {
+    "AllowedIPs": "0.0.0.0/0"
+   },
+   "cambios": [
+    "dns_privado",
+    "ipv6_por_tunel"
+   ],
+   "interfaz_final": {
+    "Address": "10.2.0.2/32",
+    "DNS": "9.9.9.9, 149.112.112.112, 2620:fe::fe"
+   },
+   "peer_final": {
+    "AllowedIPs": "0.0.0.0/0, ::/0"
+   }
+  },
+  {
+   "interfaz": {
+    "DNS": "10.2.0.1"
+   },
+   "peer": {
+    "AllowedIPs": "0.0.0.0/0, ::/0"
+   },
+   "cambios": [],
+   "interfaz_final": {
+    "DNS": "10.2.0.1"
+   },
+   "peer_final": {
+    "AllowedIPs": "0.0.0.0/0, ::/0"
+   }
+  },
+  {
+   "interfaz": {},
+   "peer": {
+    "AllowedIPs": "0.0.0.0/0,10.0.0.0/8"
+   },
+   "cambios": [
+    "dns_privado",
+    "ipv6_por_tunel"
+   ],
+   "interfaz_final": {
+    "DNS": "9.9.9.9, 149.112.112.112, 2620:fe::fe"
+   },
+   "peer_final": {
+    "AllowedIPs": "0.0.0.0/0, 10.0.0.0/8, ::/0"
+   }
+  }
+ ],
+ "jurisdiccion": [
+  {
+   "pais": "US",
+   "salida": {
+    "pais": "US",
+    "alianza": "5 Ojos",
+    "puntaje": 0.1,
+    "texto": "US pertenece a los 5 Ojos: sus agencias comparten datos de vigilancia"
+   }
+  },
+  {
+   "pais": "fr",
+   "salida": {
+    "pais": "FR",
+    "alianza": "9 Ojos",
+    "puntaje": 0.3,
+    "texto": "FR pertenece a los 9 Ojos (intercambio de inteligencia)"
+   }
+  },
+  {
+   "pais": "SE",
+   "salida": {
+    "pais": "SE",
+    "alianza": "14 Ojos",
+    "puntaje": 0.5,
+    "texto": "SE pertenece a los 14 Ojos (intercambio de inteligencia)"
+   }
+  },
+  {
+   "pais": "CH",
+   "salida": {
+    "pais": "CH",
+    "alianza": "ninguna",
+    "puntaje": 1.0,
+    "texto": "CH no pertenece a las alianzas 5/9/14 Ojos"
+   }
+  },
+  {
+   "pais": "CO",
+   "salida": {
+    "pais": "CO",
+    "alianza": "ninguna",
+    "puntaje": 1.0,
+    "texto": "CO no pertenece a las alianzas 5/9/14 Ojos"
+   }
+  },
+  {
+   "pais": null,
+   "salida": {
+    "pais": null,
+    "alianza": "desconocida",
+    "puntaje": 0.5,
+    "texto": "País de salida desconocido"
+   }
+  },
+  {
+   "pais": "",
+   "salida": {
+    "pais": null,
+    "alianza": "desconocida",
+    "puntaje": 0.5,
+    "texto": "País de salida desconocido"
+   }
+  }
+ ]
+}

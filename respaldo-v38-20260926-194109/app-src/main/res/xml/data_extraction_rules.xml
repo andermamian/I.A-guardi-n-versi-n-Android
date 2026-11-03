@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada de GuardianIA sale en copias de seguridad ni en transferencias entre teléfonos:
+     los tokens están atados a la clave del Keystore de ESTE equipo y no servirían en otro. -->
+<data-extraction-rules>
+    <cloud-backup><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /></cloud-backup>
+    <device-transfer><exclude domain="sharedpref" path="." /><exclude domain="file" path="." /></device-transfer>
+</data-extraction-rules>

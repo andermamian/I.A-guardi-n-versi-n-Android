@@ -1,0 +1,58 @@
+[
+ {
+  "texto": "crea un word ocn un plan clase",
+  "norm": "crea un word ocn un plan clase",
+  "vec_sum": 0.601929265428846,
+  "intencion": "crear_archivo",
+  "conf": 0.9999210380594886
+ },
+ {
+  "texto": "q hago si me robaron el celu",
+  "norm": "q hago si me robaron el celu",
+  "vec_sum": 0.41208169184606713,
+  "intencion": "dispositivo",
+  "conf": 0.9993253161818879
+ },
+ {
+  "texto": "hazme una funcion en python que valide correos",
+  "norm": "hazme una funcion en python que valide correos",
+  "vec_sum": 0.10721125348377947,
+  "intencion": "codigo",
+  "conf": 0.999900171729872
+ },
+ {
+  "texto": "me duele el pecho y no puedo respirar",
+  "norm": "me duele el pecho y no puedo respirar",
+  "vec_sum": 0.3464101615137754,
+  "intencion": "salud",
+  "conf": 0.44780449049951265
+ },
+ {
+  "texto": "hola como estas",
+  "norm": "hola como estas",
+  "vec_sum": -0.1999999999999999,
+  "intencion": "charla",
+  "conf": 0.9998357397831525
+ },
+ {
+  "texto": "Diséñame!! un afiche",
+  "norm": "disename un afiche",
+  "vec_sum": 0.18569533817705186,
+  "intencion": "crear_archivo",
+  "conf": 0.8659499224542365
+ },
+ {
+  "texto": "que es la norma ntc 1486",
+  "norm": "que es la norma ntc 1486",
+  "vec_sum": -1.5714285714285714,
+  "intencion": "conocimiento",
+  "conf": 0.9998909311391437
+ },
+ {
+  "texto": "está seguro este enlace bancolombia-login.xyz",
+  "norm": "esta seguro este enlace bancolombia login xyz",
+  "vec_sum": -0.09950371902099892,
+  "intencion": "codigo",
+  "conf": 0.5744589206971766
+ }
+]

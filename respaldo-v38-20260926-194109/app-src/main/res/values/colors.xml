@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta de GuardianIA (misma que la web). El código la usa vía ui/kit/Ui.java. -->
+    <color name="fondo">#0B1D2E</color>
+    <color name="tarjeta">#12263B</color>
+    <color name="tarjeta2">#183049</color>
+    <color name="borde">#1F3A55</color>
+    <color name="texto">#EAF2FB</color>
+    <color name="texto2">#9FBAD2</color>
+    <color name="acento">#38BDF8</color>
+    <color name="acento_texto">#04121E</color>
+    <color name="ok">#34D399</color>
+    <color name="aviso">#FBBF24</color>
+    <color name="peligro">#F87171</color>
+</resources>

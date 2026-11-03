@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GuardianIA</string>
+    <string name="admin_descripcion">Permite a GuardianIA bloquear la pantalla y borrar el teléfono de forma remota si lo pierdes o te lo roban.</string>
+</resources>

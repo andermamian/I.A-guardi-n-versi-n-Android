@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Solo se piden las dos capacidades que GuardianIA usa: bloquear la pantalla y borrar el equipo.
+     Android muestra esta lista al usuario cuando activa el administrador; no se pide nada más. -->
+<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-policies>
+        <force-lock />
+        <wipe-data />
+    </uses-policies>
+</device-admin>

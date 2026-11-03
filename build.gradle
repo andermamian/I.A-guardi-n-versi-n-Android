@@ -1,0 +1,4 @@
+// Config raíz. Las versiones se fijan aquí para que el proyecto compile igual en cualquier equipo.
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}

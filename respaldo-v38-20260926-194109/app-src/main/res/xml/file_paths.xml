@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Archivos que el asistente crea (Word, Excel, PDF…) en Android 8-9, para abrirlos con otra app. -->
+<paths>
+    <external-files-path name="descargas" path="Download/" />
+    <cache-path name="cache" path="compartir/" />
+</paths>

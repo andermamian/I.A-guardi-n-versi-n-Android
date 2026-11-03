@@ -1,0 +1,43 @@
+# Flutter / Android generated files
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+app/build/
+.gradle/
+android/.gradle/
+*.iml
+*.apk
+*.aab
+*.dill
+*.class
+*.log
+
+# Local machine configuration
+local.properties
+android/local.properties
+.idea/
+.DS_Store
+.vscode/
+
+# Signing keys and credentials — never commit these
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+key.properties
+.env
+.env.*
+secrets.*
+credentials.*
+google-services.json
+
+# Native build output
+.cxx/
+.externalNativeBuild/
+captures/

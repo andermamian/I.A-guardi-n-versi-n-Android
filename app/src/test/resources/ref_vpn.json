@@ -1,0 +1,722 @@
+{
+ "conf": [
+  {
+   "caso": "valido",
+   "texto": "[Interface]\nPrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n\n[Peer]\nPublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=\nAllowedIPs = 0.0.0.0/0, ::/0\nEndpoint = 185.159.157.1:51820 # proton\n",
+   "ok": true,
+   "interfaz": {
+    "Address": "10.2.0.2/32",
+    "DNS": "10.2.0.1"
+   },
+   "peer": {
+    "PublicKey": "xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=",
+    "AllowedIPs": "0.0.0.0/0, ::/0",
+    "Endpoint": "185.159.157.1:51820",
+    "PersistentKeepalive": "25"
+   },
+   "publica": "HIgo9xNzJMWLKASShiTqIybxZ0U3wGLiUeJ1PKf8ykw="
+  },
+  {
+   "caso": "sin_allowed",
+   "texto": "[Interface]\nPrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=\nAddress = 10.2.0.2/32\n[Peer]\nPublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=\nEndpoint = vpn.ejemplo.com:51820\n",
+   "ok": true,
+   "interfaz": {
+    "Address": "10.2.0.2/32",
+    "DNS": "9.9.9.9, 149.112.112.112, 2620:fe::fe"
+   },
+   "peer": {
+    "PublicKey": "xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=",
+    "Endpoint": "vpn.ejemplo.com:51820",
+    "AllowedIPs": "0.0.0.0/0, ::/0",
+    "PersistentKeepalive": "25"
+   },
+   "publica": "HIgo9xNzJMWLKASShiTqIybxZ0U3wGLiUeJ1PKf8ykw="
+  },
+  {
+   "caso": "postup",
+   "texto": "[Interface]\nPrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=\nAddress = 10.2.0.2/32\nPostUp = curl evil\n[Peer]\nPublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=\nEndpoint = a:1\n",
+   "ok": false,
+   "error": "El archivo trae «PostUp», que ejecuta comandos en su equipo. Por seguridad no se acepta: quítelo y vuelva a importarlo."
+  },
+  {
+   "caso": "parcial",
+   "texto": "[Interface]\nPrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=\nAddress = 10.2.0.2/32\n[Peer]\nPublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=\nEndpoint = a:1\nAllowedIPs = 10.0.0.0/8\n",
+   "ok": false,
+   "error": "El archivo no enruta todo el tráfico (AllowedIPs sin 0.0.0.0/0): su IP no cambiaría"
+  },
+  {
+   "caso": "falta_endpoint",
+   "texto": "[Interface]\nPrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=\nAddress = 10.2.0.2/32\n[Peer]\nPublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=\n",
+   "ok": false,
+   "error": "Falta «Endpoint» en el archivo"
+  },
+  {
+   "caso": "clave_mala",
+   "texto": "[Interface]\nPrivateKey = abc\nAddress = 10.2.0.2/32\n[Peer]\nPublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=\nEndpoint = a:1\n",
+   "ok": false,
+   "error": "Las claves del archivo no tienen el formato de WireGuard"
+  },
+  {
+   "caso": "sin_secciones",
+   "texto": "PrivateKey = x\n",
+   "ok": false,
+   "error": "El archivo no tiene las secciones [Interface] y [Peer]"
+  },
+  {
+   "caso": "linea_rara",
+   "texto": "[Interface]\nhola mundo\n",
+   "ok": false,
+   "error": "Línea no válida: «hola mundo»"
+  }
+ ],
+ "servidores": [
+  {
+   "id": "bog",
+   "country": "CO",
+   "city": "Bogotá",
+   "protocol": "wireguard",
+   "is_premium": false,
+   "load": 0.2,
+   "latency_ms": 25,
+   "active": true
+  },
+  {
+   "id": "mia",
+   "country": "US",
+   "city": "Miami",
+   "protocol": "wireguard",
+   "is_premium": false,
+   "load": 0.6,
+   "latency_ms": 70,
+   "active": true
+  },
+  {
+   "id": "zrh",
+   "country": "CH",
+   "city": "Zúrich",
+   "protocol": "wireguard",
+   "is_premium": true,
+   "load": 0.3,
+   "latency_ms": 180,
+   "active": true
+  },
+  {
+   "id": "mad",
+   "country": "ES",
+   "city": "Madrid",
+   "protocol": "openvpn",
+   "is_premium": false,
+   "load": 0.95,
+   "latency_ms": 140,
+   "active": true
+  },
+  {
+   "id": "sao",
+   "country": "BR",
+   "city": "São Paulo",
+   "protocol": "wireguard",
+   "is_premium": false,
+   "load": 0.1,
+   "latency_ms": 90,
+   "active": false
+  }
+ ],
+ "recomendaciones": [
+  {
+   "proposito": "general",
+   "pais": "CO",
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 88.8,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     88.8
+    ],
+    [
+     "mia",
+     56.6
+    ],
+    [
+     "zrh",
+     56.0
+    ],
+    [
+     "mad",
+     40.0
+    ]
+   ]
+  },
+  {
+   "proposito": "general",
+   "pais": "CO",
+   "destino": "US",
+   "premium": false,
+   "observada": {
+    "bog": 300.0
+   },
+   "mejor": "bog",
+   "puntaje": 64.8,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 300,
+   "ranking": [
+    [
+     "bog",
+     64.8
+    ],
+    [
+     "mia",
+     56.6
+    ],
+    [
+     "zrh",
+     56.0
+    ],
+    [
+     "mad",
+     40.0
+    ]
+   ]
+  },
+  {
+   "proposito": "general",
+   "pais": null,
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 78.8,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     78.8
+    ],
+    [
+     "mia",
+     62.9
+    ],
+    [
+     "zrh",
+     62.2
+    ],
+    [
+     "mad",
+     46.2
+    ]
+   ]
+  },
+  {
+   "proposito": "streaming",
+   "pais": "CO",
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 78.9,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     78.9
+    ],
+    [
+     "zrh",
+     56.0
+    ],
+    [
+     "mia",
+     52.4
+    ],
+    [
+     "mad",
+     35.8
+    ]
+   ]
+  },
+  {
+   "proposito": "streaming",
+   "pais": "CO",
+   "destino": "US",
+   "premium": false,
+   "observada": {
+    "bog": 300.0
+   },
+   "mejor": "mia",
+   "puntaje": 64.9,
+   "motivos": [
+    "Ubicado en US para el catálogo que busca"
+   ],
+   "latencia": 70,
+   "ranking": [
+    [
+     "mia",
+     64.9
+    ],
+    [
+     "bog",
+     61.7
+    ],
+    [
+     "zrh",
+     56.0
+    ],
+    [
+     "mad",
+     35.8
+    ]
+   ]
+  },
+  {
+   "proposito": "streaming",
+   "pais": null,
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 72.9,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     72.9
+    ],
+    [
+     "zrh",
+     59.7
+    ],
+    [
+     "mia",
+     56.1
+    ],
+    [
+     "mad",
+     39.5
+    ]
+   ]
+  },
+  {
+   "proposito": "gaming",
+   "pais": "CO",
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 91.1,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     91.1
+    ],
+    [
+     "mia",
+     65.1
+    ],
+    [
+     "zrh",
+     57.5
+    ],
+    [
+     "mad",
+     44.8
+    ]
+   ]
+  },
+  {
+   "proposito": "gaming",
+   "pais": "CO",
+   "destino": "US",
+   "premium": false,
+   "observada": {
+    "bog": 300.0
+   },
+   "mejor": "mia",
+   "puntaje": 65.1,
+   "motivos": [
+    "Mejor equilibrio general entre velocidad y carga"
+   ],
+   "latencia": 70,
+   "ranking": [
+    [
+     "mia",
+     65.1
+    ],
+    [
+     "zrh",
+     57.5
+    ],
+    [
+     "bog",
+     53.3
+    ],
+    [
+     "mad",
+     44.8
+    ]
+   ]
+  },
+  {
+   "proposito": "gaming",
+   "pais": null,
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 85.1,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     85.1
+    ],
+    [
+     "mia",
+     68.9
+    ],
+    [
+     "zrh",
+     61.3
+    ],
+    [
+     "mad",
+     48.5
+    ]
+   ]
+  },
+  {
+   "proposito": "privacy",
+   "pais": "CO",
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "zrh",
+   "puntaje": 82.5,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Jurisdicción con buena protección de datos (CH)"
+   ],
+   "latencia": 180,
+   "ranking": [
+    [
+     "zrh",
+     82.5
+    ],
+    [
+     "bog",
+     61.1
+    ],
+    [
+     "mia",
+     46.1
+    ],
+    [
+     "mad",
+     34.8
+    ]
+   ]
+  },
+  {
+   "proposito": "privacy",
+   "pais": "CO",
+   "destino": "US",
+   "premium": false,
+   "observada": {
+    "bog": 300.0
+   },
+   "mejor": "bog",
+   "puntaje": 50.8,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 300,
+   "ranking": [
+    [
+     "zrh",
+     82.5
+    ],
+    [
+     "bog",
+     50.8
+    ],
+    [
+     "mia",
+     46.1
+    ],
+    [
+     "mad",
+     34.8
+    ]
+   ]
+  },
+  {
+   "proposito": "privacy",
+   "pais": null,
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "zrh",
+   "puntaje": 83.8,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Jurisdicción con buena protección de datos (CH)"
+   ],
+   "latencia": 180,
+   "ranking": [
+    [
+     "zrh",
+     83.8
+    ],
+    [
+     "bog",
+     59.1
+    ],
+    [
+     "mia",
+     47.4
+    ],
+    [
+     "mad",
+     36.0
+    ]
+   ]
+  },
+  {
+   "proposito": "download",
+   "pais": "CO",
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 82.6,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     82.6
+    ],
+    [
+     "zrh",
+     62.5
+    ],
+    [
+     "mia",
+     53.1
+    ],
+    [
+     "mad",
+     34.8
+    ]
+   ]
+  },
+  {
+   "proposito": "download",
+   "pais": "CO",
+   "destino": "US",
+   "premium": false,
+   "observada": {
+    "bog": 300.0
+   },
+   "mejor": "bog",
+   "puntaje": 72.2,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Cercano a su ubicación"
+   ],
+   "latencia": 300,
+   "ranking": [
+    [
+     "bog",
+     72.2
+    ],
+    [
+     "zrh",
+     62.5
+    ],
+    [
+     "mia",
+     53.1
+    ],
+    [
+     "mad",
+     34.8
+    ]
+   ]
+  },
+  {
+   "proposito": "download",
+   "pais": null,
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 76.6,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     76.6
+    ],
+    [
+     "zrh",
+     66.3
+    ],
+    [
+     "mia",
+     56.9
+    ],
+    [
+     "mad",
+     38.5
+    ]
+   ]
+  },
+  {
+   "proposito": "anonimato",
+   "pais": "CO",
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "zrh",
+   "puntaje": 89.5,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Fuera de las alianzas de vigilancia 5/9/14 Ojos (CH)",
+    "Sale por otro país: queda fuera de las leyes y del operador de su país"
+   ],
+   "latencia": 180,
+   "ranking": [
+    [
+     "zrh",
+     89.5
+    ],
+    [
+     "bog",
+     67.4
+    ],
+    [
+     "mad",
+     42.5
+    ],
+    [
+     "mia",
+     23.3
+    ]
+   ]
+  },
+  {
+   "proposito": "anonimato",
+   "pais": "CO",
+   "destino": "US",
+   "premium": false,
+   "observada": {
+    "bog": 300.0
+   },
+   "mejor": "bog",
+   "puntaje": 60.5,
+   "motivos": [
+    "Servidor poco ocupado",
+    "Fuera de las alianzas de vigilancia 5/9/14 Ojos (CO)"
+   ],
+   "latencia": 300,
+   "ranking": [
+    [
+     "zrh",
+     89.5
+    ],
+    [
+     "bog",
+     60.5
+    ],
+    [
+     "mad",
+     42.5
+    ],
+    [
+     "mia",
+     23.3
+    ]
+   ]
+  },
+  {
+   "proposito": "anonimato",
+   "pais": null,
+   "destino": null,
+   "premium": true,
+   "observada": {},
+   "mejor": "bog",
+   "puntaje": 95.4,
+   "motivos": [
+    "Baja latencia (~25 ms)",
+    "Servidor poco ocupado",
+    "Fuera de las alianzas de vigilancia 5/9/14 Ojos (CO)"
+   ],
+   "latencia": 25,
+   "ranking": [
+    [
+     "bog",
+     95.4
+    ],
+    [
+     "zrh",
+     89.5
+    ],
+    [
+     "mad",
+     42.5
+    ],
+    [
+     "mia",
+     23.3
+    ]
+   ]
+  }
+ ],
+ "ewma": 82.0,
+ "saturados": [
+  "mad"
+ ]
+}

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Internet para hablar con el PC/servidor. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Cámara: leer el QR de vinculación y, con el equipo reportado, la foto del intruso. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+
+    <!-- Ubicación. ACCESS_BACKGROUND_LOCATION es la clave del antirrobo: reporta aunque la app esté
+         cerrada. Se concede una vez; el ladrón no tiene que aceptar nada después. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <!-- Servicio en primer plano: lo que mantiene el rastreo vivo 24/7. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <!-- La IA sigue escribiendo si la persona cambia de app (servicio en primer plano «dataSync»). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <!-- Tor integrado: el proxy debe seguir vivo aunque la persona use otras apps (Android 14+). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Arrancar tras reiniciar el teléfono: si lo apagan y encienden, el rastreo vuelve. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- Mostrar la alarma y los mensajes del dueño sobre la pantalla de bloqueo, aunque la app esté
+         cerrada (Android 10+ no deja abrir pantallas desde segundo plano de otra forma). -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <!-- SOS por SMS desde la SIM: llega a cualquier celular, sin internet ni servicio pagado. -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- Ver las dos SIM: si una no puede enviar el SOS, se prueba con la otra. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+    <!-- Vibración de la alarma «¡Aquí estoy!». -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".GuardianApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GuardianIA"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|uiMode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="guardiania" android:host="vincular" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.pantallas.VincularActivity" android:exported="false" />
+        <activity android:name=".ui.pantallas.CuentaActivity" android:exported="false" />
+        <activity android:name=".ui.pantallas.ContactosActivity" android:exported="false" />
+        <activity android:name=".ui.pantallas.VpnActivity" android:exported="false" />
+
+        <!-- SOS del panel rápido: cuenta regresiva de 5 s sobre la pantalla de bloqueo. -->
+        <activity android:name=".ui.pantallas.SosCuentaActivity" android:exported="false"
+            android:showWhenLocked="true" android:turnScreenOn="true" android:excludeFromRecents="true"
+            android:launchMode="singleTask" android:screenOrientation="portrait"
+            android:taskAffinity="co.guardiania.app.sos" />
+
+        <!-- Botón «SOS» en el panel rápido de Android (junto al WiFi y la linterna). -->
+        <service
+            android:name=".seguridad.SosTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_sos"
+            android:label="SOS GuardianIA"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- «Estoy bien» desde la notificación del SOS. -->
+        <receiver android:name=".seguridad.AvisoSos$Receptor" android:exported="false" />
+        <activity android:name=".ui.ScanActivity" android:exported="false" android:screenOrientation="portrait" />
+
+        <!-- La IA terminando su respuesta aunque la persona use otra app. -->
+        <service
+            android:name=".service.ServicioIA"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- Tor integrado (tor-android oficial): proxy local 127.0.0.1 para Chrome y otras apps. -->
+        <service
+            android:name=".service.ServicioTor"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Proxy local de Tor elegido por la persona para navegar de forma anónima" />
+        </service>
+
+        <!-- Servicio de rastreo en segundo plano. -->
+        <service
+            android:name=".service.TrackingService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <!-- Encendido del teléfono y cambios de energía. -->
+        <receiver
+            android:name=".service.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Pantalla de mensaje/alarma/bloqueo, sobre el bloqueo del teléfono. -->
+        <activity
+            android:name=".service.AlertActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:theme="@style/Theme.GuardianIA.Alerta" />
+
+        <!-- Confirmación de Android de que cada SMS del SOS salió a la red del operador. -->
+        <receiver android:name=".seguridad.SmsEnviadoReceiver" android:exported="false" />
+
+        <!-- Botón «Detener» de la notificación de la alarma remota. -->
+        <receiver android:name=".service.DetenerAlarmaReceiver" android:exported="false" />
+
+        <!-- Administrador del dispositivo: bloqueo real de pantalla y borrado de fábrica. -->
+        <receiver
+            android:name=".service.AdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+            android:exported="true">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- VPN: el servicio del motor oficial de WireGuard. Solo Android puede enlazarlo
+             (BIND_VPN_SERVICE); la biblioteca también lo declara y el manifiesto se fusiona. -->
+        <service
+            android:name="com.wireguard.android.backend.GoBackend$VpnService"
+            android:exported="false"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+
+        <!-- Comparte los archivos que crea el asistente (Word, PDF…) con otras apps. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+</manifest>

@@ -1,0 +1,6 @@
+app/ai/music_therapy.py
+app/ai/vitals_engine.py
+app/api/v1/health.py
+app/schemas/health.py
+web/app/views/salud.js
+web/app/watch-session.js
